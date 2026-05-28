@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AMERYGO - Premium Custom Sportswear</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Montserrat:ital,wght@0,700;0,800;0,900;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#581e00",
+                        "tertiary-fixed": "#d0e4ff",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#561d00",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-tint": "#ffb596",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-fixed-variant": "#7c2e00",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-container": "#ff6600",
+                        "on-secondary": "#313030",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "secondary": "#c8c6c5",
+                        "surface": "#131313",
+                        "on-tertiary-container": "#003155",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#ffdbcd",
+                        "inverse-primary": "#a33e00",
+                        "surface-container": "#201f1f",
+                        "surface-bright": "#3a3939",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "primary-fixed-dim": "#ffb596",
+                        "on-surface-variant": "#e3bfb1",
+                        "on-background": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#001d35",
+                        "tertiary-container": "#009cfc",
+                        "secondary-container": "#474746",
+                        "tertiary": "#9ccaff",
+                        "on-tertiary": "#003256",
+                        "on-primary-fixed": "#360f00",
+                        "outline-variant": "#5a4136",
+                        "surface-container-high": "#2a2a2a",
+                        "primary": "#ffb596",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#aa8a7d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glow-primary {
+            box-shadow: 0 0 32px 4px rgba(255, 102, 0, 0.2);
+        }
+        .glow-primary-hover:hover {
+            box-shadow: 0 0 32px 4px rgba(255, 102, 0, 0.3);
+        }
+        .text-glow {
+            text-shadow: 0 0 16px rgba(255, 102, 0, 0.5);
+        }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col relative bg-pattern">
+<!-- Responsive Header -->
+<header class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-lg border-b border-surface-container-highest shadow-xl shadow-primary-container/10 transition-all duration-300">
+    <div class="flex justify-between items-center px-6 md:px-12 h-20 w-full max-w-container-max mx-auto">
+        <!-- Logo -->
+        <a href="#" class="font-headline-lg font-black text-primary-container tracking-tighter italic flex items-center hover:opacity-80 transition-opacity">
+            AMERYGO
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8 items-center">
+            <a class="text-primary-container font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-primary-container hover:text-primary-container transition-colors duration-300" href="index.html">Home</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="products.html">Shop All</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="articles.html">Artikel</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="contact.html">Kontak</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="404.html">Error 404</a>
+            <a class="ml-4 px-6 py-2.5 bg-primary-container text-background font-bold rounded-full hover:bg-[#e65c00] hover:scale-105 active:scale-95 transition-all duration-300 glow-primary" href="#">Order Now</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden text-on-surface hover:text-primary-container focus:outline-none transition-colors duration-300 p-2">
+            <span class="material-symbols-rounded text-3xl" id="menu-icon">menu</span>
+        </button>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 z-[55] hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
+
+    <!-- Mobile Nav Sidebar -->
+    <div id="mobile-menu" class="fixed top-0 left-0 h-screen w-4/5 max-w-sm bg-background/95 backdrop-blur-xl border-r border-surface-container-highest shadow-2xl z-[60] transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col">
+        <div class="flex justify-between items-center px-6 h-20 border-b border-surface-container-highest shrink-0">
+            <span class="font-headline-lg font-black text-primary-container tracking-tighter italic">AMERYGO</span>
+            <button id="close-menu-btn" aria-label="Close Menu" class="text-on-surface hover:text-primary-container transition-colors duration-300 p-2 focus:outline-none">
+                <span class="material-symbols-rounded text-3xl">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-6 py-8 px-6 overflow-y-auto">
+            <a class="text-primary-container font-bold text-xl border-b border-surface-container-highest pb-4" href="index.html">Home</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="products.html">Shop All</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="articles.html">Artikel</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="contact.html">Kontak</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="404.html">Error 404</a>
+            <a class="mt-4 px-8 py-3 w-full text-center bg-primary-container text-background font-bold rounded-full hover:bg-[#e65c00] active:scale-95 transition-all duration-300 glow-primary" href="#">Order Now</a>
+        </nav>
+    </div>
+</header>
+<main class="flex-grow pt-20 md:pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[calc(100vh-80px)] lg:min-h-[795px] flex items-center overflow-hidden">
+<!-- Background effects -->
+<div class="absolute inset-0 bg-gradient-to-br from-background via-surface-container-lowest to-[#2a1300] -z-10"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-primary-container/5 rounded-full blur-[80px] md:blur-[100px] pointer-events-none -z-10"></div>
+<div class="max-w-container-max mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-12 lg:py-24">
+<div class="flex flex-col gap-6 lg:gap-8 items-center text-center lg:items-start lg:text-left z-10 mt-6 lg:mt-0 order-2 lg:order-1">
+<h1 class="font-display-xl text-5xl md:text-6xl lg:text-[80px] leading-[1.1] uppercase italic text-on-surface tracking-tighter">
+                        Custom Jersey &amp;<br/>
+<span class="text-primary-container text-glow">Sportwear</span><br/>
+                        Premium
+                    </h1>
+<p class="font-body-md text-base md:text-lg text-on-secondary-container max-w-lg">
+                        Desain gratis tanpa batas. Produksi cepat dengan hasil presisi. Jadikan tim Anda tampil layaknya profesional di lapangan.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4 lg:mt-6">
+<button class="w-full sm:w-auto bg-primary-container text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-[#e65c00] transition-all glow-primary hover:scale-105 active:scale-95">
+                            Konsultasi
+                        </button>
+<a href="products.html" class="inline-flex justify-center items-center text-center w-full sm:w-auto bg-transparent border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-primary-container/10 transition-all active:scale-95">
+                            Lihat Produk
+                        </a>
+</div>
+</div>
+<div class="relative z-10 flex justify-center lg:justify-end mt-4 lg:mt-0 order-1 lg:order-2">
+<div class="relative w-full max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] aspect-square">
+<!-- Simulated mockup container -->
+<div class="absolute inset-0 bg-surface-container rounded-full border border-surface-container-highest flex items-center justify-center overflow-hidden shadow-[0_0_40px_rgba(255,102,0,0.15)]">
+<img alt="Hero Image" class="w-[120%] h-[120%] object-cover object-center scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA60XIoVKXCdU4ymRxeQ3a3mbYM2PNRQp5BMF5IdMgbKWcCeQXowbmxZUeWv1yzKe2IlnXadCT3-jpOEqjJcZO7JfNrDh1Cr_DSg-6n5dw9qlu8m6JmmxabcPNp4P3XTYMlZr3yelOXBuikoWe3IbbyL05_tpiKDlALSeIo6RpQCEgpMv_oftrq-UmZeukCv4emNeY-boxww50Cq1D5L687_OlMpyclPAkR8QNBZiwVKt9yMq7M6HPeG2V1ZhYOyNJqsRNTcXwXa77_"/>
+</div>
+<!-- Badges -->
+<div class="absolute top-4 lg:top-10 -left-2 lg:-left-6 bg-primary-container text-background font-bold text-[10px] lg:text-sm px-4 py-2 rounded-full shadow-xl transform -rotate-6 backdrop-blur-md">
+                            Free Design
+                        </div>
+<div class="absolute bottom-4 lg:bottom-10 -right-2 lg:-right-6 bg-surface-container-high/90 backdrop-blur-md border border-surface-container-highest text-primary-container font-bold text-[10px] lg:text-sm px-4 py-2 rounded-full shadow-xl transform rotate-3 flex items-center gap-1">
+<span class="material-symbols-rounded text-[14px] lg:text-[16px]">bolt</span>
+                            Fast Production
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="border-y border-surface-container-highest bg-surface-container-low py-12">
+<div class="max-w-container-max mx-auto px-4 md:px-md">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-6 text-center">
+<div class="flex flex-col items-center gap-4 hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-primary-container text-[56px] lg:text-[64px] drop-shadow-[0_0_15px_rgba(255,102,0,0.3)]">groups</span>
+<span class="font-bold text-sm">Ribuan pelanggan puas</span>
+</div>
+<div class="flex flex-col items-center gap-4 hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-primary-container text-[56px] lg:text-[64px] drop-shadow-[0_0_15px_rgba(255,102,0,0.3)]">factory</span>
+<span class="font-bold text-sm">Produksi profesional</span>
+</div>
+<div class="flex flex-col items-center gap-4 hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-primary-container text-[56px] lg:text-[64px] drop-shadow-[0_0_15px_rgba(255,102,0,0.3)]">diamond</span>
+<span class="font-bold text-sm">Bahan premium</span>
+</div>
+<div class="flex flex-col items-center gap-4 hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-primary-container text-[56px] lg:text-[64px] drop-shadow-[0_0_15px_rgba(255,102,0,0.3)]">verified</span>
+<span class="font-bold text-sm">Garansi kualitas</span>
+</div>
+<div class="flex flex-col items-center gap-4 hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-primary-container text-[56px] lg:text-[64px] drop-shadow-[0_0_15px_rgba(255,102,0,0.3)]">local_shipping</span>
+<span class="font-bold text-sm">Pengiriman seluruh Indonesia</span>
+</div>
+<div class="flex flex-col items-center gap-4 hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-primary-container text-[56px] lg:text-[64px] drop-shadow-[0_0_15px_rgba(255,102,0,0.3)]">support_agent</span>
+<span class="font-bold text-sm">Fast response support</span>
+</div>
+</div>
+</div>
+</section>
+<!-- About & Stats Section -->
+<section class="py-xl">
+<div class="max-w-container-max mx-auto px-4 md:px-md grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+<div class="flex flex-col gap-6">
+<h2 class="font-headline-lg text-headline-lg font-black uppercase italic">Kualitas Manufaktur <span class="text-primary-container">Terbaik</span></h2>
+<p class="text-on-secondary-container text-lg leading-relaxed">
+                AMERYGO berdedikasi untuk memberikan hasil produksi pakaian olahraga dengan standar tertinggi. Kami menggunakan teknologi printing sublimasi terbaru untuk warna yang tajam dan tidak pudar. 
+                Material kain yang kami pilih menjamin kenyamanan maksimal saat beraktivitas berat, didukung dengan jahitan profesional yang kuat dan rapi.
+            </p>
+<ul class="flex flex-col gap-4 mt-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-rounded text-primary-container">check_circle</span>
+<span class="font-bold">Printing Tajam &amp; Awet</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-rounded text-primary-container">check_circle</span>
+<span class="font-bold">Material Nyaman &amp; Breatable</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-rounded text-primary-container">check_circle</span>
+<span class="font-bold">Jahitan Presisi &amp; Kuat</span>
+</li>
+</ul>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container border border-surface-container-highest p-8 rounded-lg text-center flex flex-col items-center gap-2 glow-primary-hover transition-all">
+<span class="font-display-xl text-primary-container font-black leading-none">5000+</span>
+<span class="font-bold text-on-secondary-container uppercase tracking-wider text-sm">Jersey Diproduksi</span>
+</div>
+<div class="bg-surface-container border border-surface-container-highest p-8 rounded-lg text-center flex flex-col items-center gap-2 glow-primary-hover transition-all">
+<span class="font-display-xl text-primary-container font-black leading-none">1200+</span>
+<span class="font-bold text-on-secondary-container uppercase tracking-wider text-sm">Klien</span>
+</div>
+<div class="bg-surface-container border border-surface-container-highest p-8 rounded-lg text-center flex flex-col items-center gap-2 glow-primary-hover transition-all">
+<span class="font-display-xl text-primary-container font-black leading-none">150+</span>
+<span class="font-bold text-on-secondary-container uppercase tracking-wider text-sm">Komunitas</span>
+</div>
+<div class="bg-surface-container border border-surface-container-highest p-8 rounded-lg text-center flex flex-col items-center gap-2 glow-primary-hover transition-all">
+<span class="font-display-xl text-primary-container font-black leading-none">5</span>
+<span class="font-bold text-on-secondary-container uppercase tracking-wider text-sm">Tahun Pengalaman</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Showcase -->
+<section class="py-xl bg-surface-container-lowest border-y border-surface-container-highest">
+<div class="max-w-container-max mx-auto px-4 md:px-md">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg font-black uppercase italic mb-4">Pilihan <span class="text-primary-container">Produk</span></h2>
+<p class="text-on-secondary-container max-w-2xl mx-auto">Berbagai macam kebutuhan seragam olahraga kustom untuk tim Anda.</p>
+</div>
+<div class="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+<!-- Card 1 -->
+<div class="group flex flex-col gap-4 cursor-pointer snap-center shrink-0 w-[260px] md:w-auto" onclick="window.location.href='product-detail.html'">
+<div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+<img alt="Jersey Printing" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8mhvzYy3I8f0EvV5sDrAMVgsYXO8uitB9mhg9sfxoJNR36R7rcw0j-fbldgpUrHho1eQ0r34ZZtjYL1AXqphbeWriXC0UvACZuZUKfkKOrnYtU09HkuwkSryR-BpLu5ic-Mb_pDz38xLw0nD1snTJb5g23oIuaNZNOBe2qKaoGaOvt_H_0qtWSHhLa9SzhL3gmRP0mmrYYMGCsoF4BSU4-5K3eoz9UY_OkExqs7WgGioKD4GO5xOly53AhWURSmgt6ktKSdqlDVAc"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+</div>
+</div>
+<div class="flex flex-col px-2">
+<p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Best Seller</p>
+<h3 class="font-headline-md font-bold text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight">Custom Jersey Printing</h3>
+<div class="flex items-center gap-2 mt-2 whitespace-nowrap">
+    <span class="font-bold text-primary-container text-lg">Rp 120.000</span>
+    <span class="text-on-secondary-container text-sm line-through decoration-on-secondary-container/50">Rp 160.000</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col gap-4 cursor-pointer snap-center shrink-0 w-[260px] md:w-auto" onclick="window.location.href='product-detail.html'">
+<div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+<img alt="Futsal &amp; Soccer" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHSI26Ir0KULFTQ_uVlPRXTCNoqskDhpDAdnhEYkf4mQAvpOzDxuUXQC5b3CXno9xcKqJQN6Qd4xgGEfvcqFTUNfewXp8sX_dfBRf0F7eNu-w8KQWX-LGQgIeLuMp8b2VM3yIKcNsxjYwa57qxfTFF59P8jCMRy6y8o6_d9MtTN4k23LAyepnz-0RXxVoWr4pyPqI4CJDpW6ip1yQN2A6zvf8lJfR8hJZrxAXiPjlmQQH9QQw9AKPuR58pbC2u4kJu2Q9amm8WDMAq"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+</div>
+<div class="absolute top-3 left-3 bg-red-600 text-white font-bold text-[10px] px-2 py-1 rounded">-15% OFF</div>
+</div>
+<div class="flex flex-col px-2">
+<p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Pro Series</p>
+<h3 class="font-headline-md font-bold text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight">Jersey Futsal &amp; Soccer</h3>
+<div class="flex items-center gap-2 mt-2 whitespace-nowrap">
+    <span class="font-bold text-primary-container text-lg">Rp 136.000</span>
+    <span class="text-on-secondary-container text-sm line-through decoration-on-secondary-container/50">Rp 160.000</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col gap-4 cursor-pointer snap-center shrink-0 w-[260px] md:w-auto" onclick="window.location.href='product-detail.html'">
+<div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+<img alt="Esports" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoB5FGvmuV4jzstq84J7t_5GSsJS9rRQgHXY-H9P7Z_4Hzart9FDi8_Ld8YMx1PaS8ALnMXcmL7JupfheWwr0q1oNWBj-rSOg_DQxDRiPHHekp7EvdbONPyZf9mlW5X1Y_HmAclRvhEgQgMMxzovHLwg_jty0TamDpEZvyQ8vTXmoE_R1aqKHPkZINdEBYyTcHDpBUJWVBHwaBf6_QuYLPP__PTV4vkYY0mb7munYgTwhM5_9-AqEV4jkxW6kBD67l-wlhsnrwyrVs"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+</div>
+</div>
+<div class="flex flex-col px-2">
+<p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Gaming Team</p>
+<h3 class="font-headline-md font-bold text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight">Jersey Esports Pro</h3>
+<div class="flex items-center gap-2 mt-2 whitespace-nowrap">
+    <span class="font-bold text-primary-container text-lg">Rp 150.000</span>
+    <span class="text-on-secondary-container text-sm line-through decoration-on-secondary-container/50">Rp 200.000</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col gap-4 cursor-pointer snap-center shrink-0 w-[260px] md:w-auto" onclick="window.location.href='product-detail.html'">
+<div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+<img alt="Cycling" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGQTEQbZzXjQJFtR55LY3iSuXfWO6HPxLAVF7XIdEba3hJozYFdu7DN63R8E8Io1VihRzIQfZOO2hBbVfxtZH2wekwdYv3jtptFspRm54HxCrHNWfXzVAjpGb4y0cKlbNQYJMpd-RnJ67uKG8pIxPeg_HXGxnYRIlZGj1yEYykBY8EjFSZ76D0oVkBiUYF3ZwVp-VzCMwEJaqLF7YQSQDpClMB2eo39f0ivgk_J0fXlxOgdOGcDPGSSAwWL4faExLwg-yjMVd1Qmca"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+</div>
+<div class="absolute top-3 left-3 bg-red-600 text-white font-bold text-[10px] px-2 py-1 rounded">-25% OFF</div>
+</div>
+<div class="flex flex-col px-2">
+<p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Aero Fit</p>
+<h3 class="font-headline-md font-bold text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight">Cycling Jersey Elite</h3>
+<div class="flex items-center gap-2 mt-2 whitespace-nowrap">
+    <span class="font-bold text-primary-container text-lg">Rp 180.000</span>
+    <span class="text-on-secondary-container text-sm line-through decoration-on-secondary-container/50">Rp 240.000</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How to Order -->
+<section class="py-xl">
+<div class="max-w-container-max mx-auto px-4 md:px-md">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg font-black uppercase italic mb-4">Cara <span class="text-primary-container">Pemesanan</span></h2>
+<p class="text-on-secondary-container max-w-2xl mx-auto">Proses pemesanan yang mudah, transparan, dan cepat.</p>
+</div>
+<div class="flex md:grid md:grid-cols-4 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+<!-- Step 1 -->
+<div class="group bg-surface-container rounded-2xl p-8 flex flex-col items-center text-center gap-4 snap-center shrink-0 w-[260px] md:w-auto shadow-lg hover:shadow-primary-container/20 transition-all duration-300 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-9xl font-black text-surface-container-highest/30 select-none group-hover:text-primary-container/10 transition-colors">1</div>
+<div class="w-16 h-16 rounded-full bg-background border-2 border-primary-container flex items-center justify-center text-primary-container text-2xl font-black z-10 group-hover:scale-110 transition-transform glow-primary">
+<span class="material-symbols-rounded">forum</span>
+</div>
+<h3 class="font-headline-md font-bold text-xl z-10">Konsultasi</h3>
+<p class="text-on-secondary-container text-sm z-10">Hubungi tim kami untuk mendiskusikan kebutuhan, desain, dan budget Anda.</p>
+</div>
+<!-- Step 2 -->
+<div class="group bg-surface-container rounded-2xl p-8 flex flex-col items-center text-center gap-4 snap-center shrink-0 w-[260px] md:w-auto shadow-lg hover:shadow-primary-container/20 transition-all duration-300 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-9xl font-black text-surface-container-highest/30 select-none group-hover:text-primary-container/10 transition-colors">2</div>
+<div class="w-16 h-16 rounded-full bg-background border-2 border-primary-container flex items-center justify-center text-primary-container text-2xl font-black z-10 group-hover:scale-110 transition-transform glow-primary">
+<span class="material-symbols-rounded">design_services</span>
+</div>
+<h3 class="font-headline-md font-bold text-xl z-10">Desain</h3>
+<p class="text-on-secondary-container text-sm z-10">Tim desainer kami akan membuatkan preview 3D sesuai dengan keinginan Anda.</p>
+</div>
+<!-- Step 3 -->
+<div class="group bg-surface-container rounded-2xl p-8 flex flex-col items-center text-center gap-4 snap-center shrink-0 w-[260px] md:w-auto shadow-lg hover:shadow-primary-container/20 transition-all duration-300 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-9xl font-black text-surface-container-highest/30 select-none group-hover:text-primary-container/10 transition-colors">3</div>
+<div class="w-16 h-16 rounded-full bg-background border-2 border-primary-container flex items-center justify-center text-primary-container text-2xl font-black z-10 group-hover:scale-110 transition-transform glow-primary">
+<span class="material-symbols-rounded">precision_manufacturing</span>
+</div>
+<h3 class="font-headline-md font-bold text-xl z-10">Produksi</h3>
+<p class="text-on-secondary-container text-sm z-10">Setelah ACC desain dan DP, proses produksi akan segera dimulai.</p>
+</div>
+<!-- Step 4 -->
+<div class="group bg-surface-container rounded-2xl p-8 flex flex-col items-center text-center gap-4 snap-center shrink-0 w-[260px] md:w-auto shadow-lg hover:shadow-primary-container/20 transition-all duration-300 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-9xl font-black text-surface-container-highest/30 select-none group-hover:text-primary-container/10 transition-colors">4</div>
+<div class="w-16 h-16 rounded-full bg-background border-2 border-primary-container flex items-center justify-center text-primary-container text-2xl font-black z-10 group-hover:scale-110 transition-transform glow-primary">
+<span class="material-symbols-rounded">local_shipping</span>
+</div>
+<h3 class="font-headline-md font-bold text-xl z-10">Pengiriman</h3>
+<p class="text-on-secondary-container text-sm z-10">Pesanan selesai diproduksi, di-quality control, dan siap dikirim.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-xl bg-surface-container-lowest border-y border-surface-container-highest">
+<div class="max-w-container-max mx-auto px-4 md:px-md">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg font-black uppercase italic mb-4">Paket <span class="text-primary-container">Harga</span></h2>
+<p class="text-on-secondary-container max-w-2xl mx-auto">Pilih paket yang sesuai dengan kebutuhan tim Anda.</p>
+</div>
+<div class="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+<!-- Basic -->
+<div class="bg-surface-container border border-surface-container-highest rounded-xl p-8 flex flex-col h-full hover:border-primary-container/50 transition-colors snap-center shrink-0 w-[300px] md:w-auto">
+<h3 class="font-headline-md font-bold text-2xl mb-2 text-on-surface">Basic</h3>
+<p class="text-on-secondary-container text-sm mb-6">Cocok untuk tim pemula atau acara sekali pakai.</p>
+<div class="mb-8">
+<span class="text-on-secondary-container text-sm">Mulai dari</span>
+<div class="flex flex-col gap-1 mt-1">
+<div class="text-sm text-on-secondary-container line-through decoration-on-secondary-container/50 whitespace-nowrap">Rp 150.000</div>
+<div class="font-display-xl text-4xl font-black text-primary-container leading-none whitespace-nowrap">Rp 120.000<span class="text-lg font-normal text-on-secondary-container">/pcs</span></div>
+</div>
+</div>
+<ul class="flex flex-col gap-4 flex-grow mb-8">
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Bahan Dryfit Standard</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Full Printing (Depan &amp; Belakang)</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Gratis Nama &amp; Nomor Punggung</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-surface-container-highest text-xl shrink-0">close</span><span class="text-sm text-on-secondary-container line-through">Desain Custom 100%</span></li>
+</ul>
+<button class="w-full py-4 border-2 border-primary-container text-primary-container font-bold rounded hover:bg-primary-container/10 transition-colors">Pilih Paket Basic</button>
+</div>
+<!-- Semi Pro (Highlighted) -->
+<div class="bg-surface border-2 border-primary-container rounded-xl p-8 flex flex-col h-full relative md:transform md:-translate-y-4 shadow-2xl shadow-primary-container/20 snap-center shrink-0 w-[300px] md:w-auto">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-container text-background font-bold px-4 py-1 rounded-full text-sm whitespace-nowrap">BEST SELLER</div>
+<h3 class="font-headline-md font-bold text-2xl mb-2 text-on-surface">Semi Pro</h3>
+<p class="text-on-secondary-container text-sm mb-6">Kualitas andalan untuk tim amatir dan komunitas.</p>
+<div class="mb-8">
+<span class="text-on-secondary-container text-sm">Mulai dari</span>
+<div class="flex flex-col gap-1 mt-1">
+<div class="text-sm text-on-secondary-container line-through decoration-on-secondary-container/50 whitespace-nowrap">Rp 200.000</div>
+<div class="font-display-xl text-4xl font-black text-primary-container leading-none whitespace-nowrap">Rp 160.000<span class="text-lg font-normal text-on-secondary-container">/pcs</span></div>
+</div>
+</div>
+<ul class="flex flex-col gap-4 flex-grow mb-8">
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Bahan Dryfit Premium (Milano/Benzema)</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Full Printing Detail Tajam</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Gratis Desain Custom 100%</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Logo 3D / DTF Print</span></li>
+</ul>
+<button class="w-full py-4 bg-primary-container text-background font-bold rounded hover:bg-[#e65c00] transition-colors glow-primary">Pilih Paket Semi Pro</button>
+</div>
+<!-- Professional -->
+<div class="bg-surface-container border border-surface-container-highest rounded-xl p-8 flex flex-col h-full hover:border-primary-container/50 transition-colors snap-center shrink-0 w-[300px] md:w-auto">
+<h3 class="font-headline-md font-bold text-2xl mb-2 text-on-surface">Professional</h3>
+<p class="text-on-secondary-container text-sm mb-6">Spesifikasi tertinggi layaknya jersey pro player.</p>
+<div class="mb-8">
+<span class="text-on-secondary-container text-sm">Mulai dari</span>
+<div class="flex flex-col gap-1 mt-1">
+<div class="text-sm text-on-secondary-container line-through decoration-on-secondary-container/50 whitespace-nowrap">Rp 280.000</div>
+<div class="font-display-xl text-4xl font-black text-primary-container leading-none whitespace-nowrap">Rp 220.000<span class="text-lg font-normal text-on-secondary-container">/pcs</span></div>
+</div>
+</div>
+<ul class="flex flex-col gap-4 flex-grow mb-8">
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Bahan Ultra-Breathable / Spandex Import</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Cutting Pola Ergonomis</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Logo Emblem TPU / Silicone</span></li>
+<li class="flex items-start gap-3"><span class="material-symbols-rounded text-primary-container text-xl shrink-0">check</span><span class="text-sm">Prioritas Produksi (Fast Track)</span></li>
+</ul>
+<button class="w-full py-4 border-2 border-primary-container text-primary-container font-bold rounded hover:bg-primary-container/10 transition-colors">Pilih Paket Professional</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Article List -->
+<section class="py-xl">
+<div class="max-w-container-max mx-auto px-4 md:px-md">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg font-black uppercase italic mb-2">Artikel &amp; <span class="text-primary-container">Berita</span></h2>
+<p class="text-on-secondary-container">Update terbaru seputar dunia olahraga dan tips jersey.</p>
+</div>
+<a class="hidden md:flex items-center gap-2 text-primary-container font-bold hover:underline" href="articles.html">Lihat Semua <span class="material-symbols-rounded text-sm">arrow_forward</span></a>
+</div>
+<div class="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+<!-- Article 1 -->
+<article class="bg-surface-container border border-surface-container-highest rounded-2xl overflow-hidden group snap-center shrink-0 w-[300px] md:w-auto shadow-lg hover:shadow-primary-container/20 transition-all duration-300 cursor-pointer" onclick="window.location.href='article-detail.html'">
+<div class="aspect-video bg-surface-container-high overflow-hidden relative">
+<img alt="Tips Merawat Jersey" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy_Hrgnduk01cZ3ltC5SfYSIhomKP-T04j7Egrzd0GY52dFgnn3w5DPF-46_LmC8LIH3BH4Knj53XySYqRXYU8bfbN7kVPUWBsIxrimBEzeXX4NpIkVvrLrajmFCUP8PEMVkL--jVtwen_2F_YMUrVXe3gQ6ogpfXLS0qafkEQF97kJqqbbl0lFmeRj2UwgHpyRep3JoT0rnPwZXoNworJXGM4KtxAzGa8KLJEj3gpIitbwMnrwxDCP9h7ZhAGxJjYHpzc57wsRxfd"/>
+<div class="absolute top-4 left-4 bg-primary-container text-background font-bold text-xs px-3 py-1 rounded">TIPS &amp; TRIK</div>
+</div>
+<div class="p-6">
+<span class="text-on-secondary-container text-xs mb-2 block">12 Oktober 2024</span>
+<h3 class="font-headline-md font-bold text-lg mb-4 line-clamp-2 group-hover:text-primary-container transition-colors">Cara Tepat Merawat Jersey Printing Agar Warna Tetap Tajam Bertahun-tahun</h3>
+<a class="inline-flex items-center gap-2 text-primary-container font-bold text-sm" href="article-detail.html">Baca Selengkapnya <span class="material-symbols-rounded text-xs">arrow_forward</span></a>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="bg-surface-container border border-surface-container-highest rounded-2xl overflow-hidden group snap-center shrink-0 w-[300px] md:w-auto shadow-lg hover:shadow-primary-container/20 transition-all duration-300 cursor-pointer" onclick="window.location.href='article-detail.html'">
+<div class="aspect-video bg-surface-container-high overflow-hidden relative">
+<img alt="Pilih Bahan Jersey" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1X3gF5RHtBJEIi_2NQcZly2f5E9TeQ5o9mtOm19ghuV-NjyIl4jCvum85Dna_sycqkzFtd7PfGixm0YI1--1ErzT07d0QPmgQYtFEMjZ2PGX_YUSSdw5NBF-miTCzAyMdBOPTMJy6JUIEraq22NbFSGtXXNqsXOZXnto3BqSC_RkpM9cp8k_qHBZDXtaGm3cOqauIxBOyYctYPYKdZNwGWjIuC68NLdT9GC0eF1Tv7DxlrjCIRWcpb1qRLuvIMYhxZpsXegBVavL9"/>
+<div class="absolute top-4 left-4 bg-primary-container text-background font-bold text-xs px-3 py-1 rounded">PANDUAN</div>
+</div>
+<div class="p-6">
+<span class="text-on-secondary-container text-xs mb-2 block">05 Oktober 2024</span>
+<h3 class="font-headline-md font-bold text-lg mb-4 line-clamp-2 group-hover:text-primary-container transition-colors">Mengenal Jenis Bahan Jersey Olahraga: Mana yang Paling Cocok Untuk Tim Anda?</h3>
+<a class="inline-flex items-center gap-2 text-primary-container font-bold text-sm" href="article-detail.html">Baca Selengkapnya <span class="material-symbols-rounded text-xs">arrow_forward</span></a>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="bg-surface-container border border-surface-container-highest rounded-2xl overflow-hidden group snap-center shrink-0 w-[300px] md:w-auto shadow-lg hover:shadow-primary-container/20 transition-all duration-300 cursor-pointer" onclick="window.location.href='article-detail.html'">
+<div class="aspect-video bg-surface-container-high overflow-hidden relative">
+<img alt="Trend Desain" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVbKXuyKyMvkSx6IZiAJ3Yr5dg1oxgg_EVgOanImGLgBEG4m-XQ2GVSxGp-EFNmzZvu8hgWU9xCLCkLiZWDjiXMvX8nl_MBSrhLHL6su16fclp15Q5cqdwDk3x7iJ6ugwlKRDJ00m3hXmSaTSkXf0y0nXyLWUm5hXbly_k7g4rPufDlMT9DuErTcDgrj1jQHmF-cTz4dzEXcubwVFYvkiHZ5Qcpcp_RbbdikrRv1tURrXsSU9PLbl_3iWtbOB4NJn6cLVgny-rLNhJ"/>
+<div class="absolute top-4 left-4 bg-primary-container text-background font-bold text-xs px-3 py-1 rounded">TREN DESAIN</div>
+</div>
+<div class="p-6">
+<span class="text-on-secondary-container text-xs mb-2 block">28 September 2024</span>
+<h3 class="font-headline-md font-bold text-lg mb-4 line-clamp-2 group-hover:text-primary-container transition-colors">5 Tren Desain Jersey Futsal &amp; Sepakbola yang Paling Diminati di Tahun 2024</h3>
+<a class="inline-flex items-center gap-2 text-primary-container font-bold text-sm" href="article-detail.html">Baca Selengkapnya <span class="material-symbols-rounded text-xs">arrow_forward</span></a>
+</div>
+</article>
+<div class="mt-8 text-center md:hidden">
+<a class="inline-block px-6 py-3 border border-primary-container text-primary-container font-bold rounded w-full" href="articles.html">Lihat Semua Artikel</a>
+</div>
+</div>
+</section>
+
+<!-- Review Section -->
+<section class="py-xl bg-surface-container-lowest border-y border-surface-container-highest overflow-hidden relative">
+    <div class="absolute inset-0 bg-pattern opacity-50"></div>
+    <div class="max-w-container-max mx-auto px-4 md:px-md relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="font-headline-lg text-headline-lg font-black uppercase italic mb-4">Apa Kata <span class="text-primary-container">Mereka?</span></h2>
+            <p class="text-on-secondary-container max-w-2xl mx-auto">Lebih dari 10.000 tim olahraga di seluruh Indonesia telah mempercayakan pembuatan jersey mereka kepada AMERYGO.</p>
+        </div>
+
+        <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+            <!-- Review 1 -->
+            <div class="bg-surface-container border border-surface-container-highest rounded-2xl p-8 shadow-lg snap-center shrink-0 w-[320px] md:w-[400px] flex flex-col justify-between hover:border-primary-container/50 transition-colors">
+                <div>
+                    <div class="flex text-primary-container mb-4">
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-on-surface mb-8 leading-relaxed italic">"Jersey dari AMERYGO benar-benar luar biasa! Detail warna printing sangat tajam dan bahannya adem. Bakal langganan terus nih buat tim kita."</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-xl text-primary-container">RD</div>
+                    <div>
+                        <h4 class="font-bold text-on-surface">Raka Dimas</h4>
+                        <span class="text-xs text-on-secondary-container">Kapten Garuda Futsal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-surface-container border border-surface-container-highest rounded-2xl p-8 shadow-lg snap-center shrink-0 w-[320px] md:w-[400px] flex flex-col justify-between hover:border-primary-container/50 transition-colors">
+                <div>
+                    <div class="flex text-primary-container mb-4">
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-on-surface mb-8 leading-relaxed italic">"Pelayanan CS sangat ramah dan sabar merevisi desain. Jahitannya rapi dan ukurannya pas semua. Pengiriman juga sangat cepat dan aman."</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-xl text-primary-container">AN</div>
+                    <div>
+                        <h4 class="font-bold text-on-surface">Bima Anugrah</h4>
+                        <span class="text-xs text-on-secondary-container">Manajer SSB Tunas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-surface-container border border-surface-container-highest rounded-2xl p-8 shadow-lg snap-center shrink-0 w-[320px] md:w-[400px] flex flex-col justify-between hover:border-primary-container/50 transition-colors">
+                <div>
+                    <div class="flex text-primary-container mb-4">
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star_half</span>
+                    </div>
+                    <p class="text-on-surface mb-8 leading-relaxed italic">"Kualitas logo 3D-nya gila sih, mewah banget kelihatannya! Untuk harga segini, kualitas yang didapat jauh di atas ekspektasi."</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-xl text-primary-container">DR</div>
+                    <div>
+                        <h4 class="font-bold text-on-surface">Deni Ramdani</h4>
+                        <span class="text-xs text-on-secondary-container">Corporate Sports Team</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Review 4 -->
+            <div class="bg-surface-container border border-surface-container-highest rounded-2xl p-8 shadow-lg snap-center shrink-0 w-[320px] md:w-[400px] flex flex-col justify-between hover:border-primary-container/50 transition-colors">
+                <div>
+                    <div class="flex text-primary-container mb-4">
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-rounded" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-on-surface mb-8 leading-relaxed italic">"Sempat ragu pesan online tapi ternyata pengerjaannya presisi. Warna merah mudanya keluar banget sesuai desain asli! Puas banget!"</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-xl text-primary-container">SI</div>
+                    <div>
+                        <h4 class="font-bold text-on-surface">Siska Indah</h4>
+                        <span class="text-xs text-on-secondary-container">Kapten Voli Putri</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-surface-container-highest w-full pt-xl pb-8 mt-xl">
+<div class="max-w-container-max mx-auto px-4 md:px-md">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<!-- Brand Col -->
+<div class="flex flex-col gap-6">
+<div class="font-headline-lg text-headline-md font-black text-primary-container italic tracking-tighter">AMERYGO</div>
+<p class="text-on-secondary-container text-sm leading-relaxed">
+                Produsen pakaian olahraga custom premium terpercaya di Indonesia. Berkomitmen menghadirkan jersey kualitas terbaik untuk mendukung performa maksimal tim Anda di lapangan.
+            </p>
+<div class="flex gap-4 mt-2">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container hover:text-background transition-colors" href="#"><span class="material-symbols-rounded">camera_alt</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container hover:text-background transition-colors" href="#"><span class="material-symbols-rounded">play_arrow</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container hover:text-background transition-colors" href="#"><span class="material-symbols-rounded">tag</span></a>
+</div>
+</div>
+<!-- Links 1 -->
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-lg text-on-surface mb-2">Produk Kami</h4>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Jersey Sepakbola / Futsal</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Jersey Basket</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Jersey Esports</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Jersey Sepeda</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Tracksuit &amp; Jaket Tim</a>
+</div>
+<!-- Links 2 -->
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-lg text-on-surface mb-2">Informasi</h4>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Tentang Kami</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="faq.html">FAQ (Pertanyaan Umum)</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Cara Pemesanan</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Kebijakan Privasi</a>
+<a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Lacak Pesanan</a>
+</div>
+<!-- Contact -->
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-lg text-on-surface mb-2">Hubungi Kami</h4>
+<div class="flex items-start gap-3 text-on-secondary-container text-sm">
+<span class="material-symbols-rounded text-primary-container shrink-0">location_on</span>
+<p>Jl. Olahraga No. 88, Sport District, Jakarta Pusat 10210, Indonesia</p>
+</div>
+<div class="flex items-center gap-3 text-on-secondary-container text-sm mt-2">
+<span class="material-symbols-rounded text-primary-container shrink-0">phone</span>
+<p>+62 812 3456 7890</p>
+</div>
+<div class="flex items-center gap-3 text-on-secondary-container text-sm mt-2">
+<span class="material-symbols-rounded text-primary-container shrink-0">mail</span>
+<p>hello@amerygosport.com</p>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-surface-container-highest flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-body-md text-sm text-on-secondary-container">
+            © 2024 AMERYGO SPORT. ALL RIGHTS RESERVED.
+        </div>
+<div class="flex gap-6 text-sm text-on-secondary-container">
+<span>Powered by AMERYGO Tech</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function openMenu() {
+        mobileMenuOverlay.classList.remove('hidden');
+        // trigger reflow to enable transition
+        void mobileMenuOverlay.offsetWidth;
+        mobileMenuOverlay.classList.remove('opacity-0');
+        mobileMenu.classList.remove('-translate-x-full');
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.add('-translate-x-full');
+        mobileMenuOverlay.classList.add('opacity-0');
+        setTimeout(() => {
+            mobileMenuOverlay.classList.add('hidden');
+        }, 300);
+    }
+
+    mobileMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', closeMenu);
+</script>
+</body></html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AMERYGO - Produk Kami</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Montserrat:ital,wght@0,700;0,800;0,900;1,900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#581e00",
+                        "tertiary-fixed": "#d0e4ff",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#561d00",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-tint": "#ffb596",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-fixed-variant": "#7c2e00",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-container": "#ff6600",
+                        "on-secondary": "#313030",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "secondary": "#c8c6c5",
+                        "surface": "#131313",
+                        "on-tertiary-container": "#003155",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#ffdbcd",
+                        "inverse-primary": "#a33e00",
+                        "surface-container": "#201f1f",
+                        "surface-bright": "#3a3939",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "primary-fixed-dim": "#ffb596",
+                        "on-surface-variant": "#e3bfb1",
+                        "on-background": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#001d35",
+                        "tertiary-container": "#009cfc",
+                        "secondary-container": "#474746",
+                        "tertiary": "#9ccaff",
+                        "on-tertiary": "#003256",
+                        "on-primary-fixed": "#360f00",
+                        "outline-variant": "#5a4136",
+                        "surface-container-high": "#2a2a2a",
+                        "primary": "#ffb596",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#aa8a7d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glow-primary {
+            box-shadow: 0 0 32px 4px rgba(255, 102, 0, 0.2);
+        }
+        .glow-primary-hover:hover {
+            box-shadow: 0 0 32px 4px rgba(255, 102, 0, 0.3);
+        }
+        .text-glow {
+            text-shadow: 0 0 16px rgba(255, 102, 0, 0.5);
+        }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col relative bg-pattern">
+<!-- Responsive Header -->
+<header class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-lg border-b border-surface-container-highest shadow-xl shadow-primary-container/10 transition-all duration-300">
+    <div class="flex justify-between items-center px-6 md:px-12 h-20 w-full max-w-container-max mx-auto">
+        <!-- Logo -->
+        <a href="index.html" class="font-headline-lg font-black text-primary-container tracking-tighter italic flex items-center hover:opacity-80 transition-opacity">
+            AMERYGO
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8 items-center">
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="index.html">Home</a>
+            <a class="text-primary-container font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-primary-container hover:text-primary-container transition-colors duration-300" href="products.html">Shop All</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="articles.html">Artikel</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="contact.html">Kontak</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="404.html">Error 404</a>
+            <a class="ml-4 px-6 py-2.5 bg-primary-container text-background font-bold rounded-full hover:bg-[#e65c00] hover:scale-105 active:scale-95 transition-all duration-300 glow-primary" href="#">Order Now</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden text-on-surface hover:text-primary-container focus:outline-none transition-colors duration-300 p-2">
+            <span class="material-symbols-rounded text-3xl" id="menu-icon">menu</span>
+        </button>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 z-[55] hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
+
+    <!-- Mobile Nav Sidebar -->
+    <div id="mobile-menu" class="fixed top-0 left-0 h-screen w-4/5 max-w-sm bg-background/95 backdrop-blur-xl border-r border-surface-container-highest shadow-2xl z-[60] transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col">
+        <div class="flex justify-between items-center px-6 h-20 border-b border-surface-container-highest shrink-0">
+            <span class="font-headline-lg font-black text-primary-container tracking-tighter italic">AMERYGO</span>
+            <button id="close-menu-btn" aria-label="Close Menu" class="text-on-surface hover:text-primary-container transition-colors duration-300 p-2 focus:outline-none">
+                <span class="material-symbols-rounded text-3xl">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-6 py-8 px-6 overflow-y-auto">
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="index.html">Home</a>
+            <a class="text-primary-container font-bold text-xl border-b border-surface-container-highest pb-4" href="products.html">Shop All</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="articles.html">Artikel</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="contact.html">Kontak</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="404.html">Error 404</a>
+            <a class="mt-4 px-8 py-3 w-full text-center bg-primary-container text-background font-bold rounded-full hover:bg-[#e65c00] active:scale-95 transition-all duration-300 glow-primary" href="#">Order Now</a>
+        </nav>
+    </div>
+</header>
+
+<main class="flex-grow pt-32 pb-24">
+    <div class="max-w-container-max mx-auto px-4 md:px-md">
+        
+        <!-- Page Header & Filters -->
+        <div class="mb-12 border-b border-surface-container-highest pb-8">
+            <h1 class="font-headline-lg text-4xl md:text-5xl font-black uppercase italic mb-2">Semua <span class="text-primary-container">Produk</span></h1>
+            <p class="text-on-secondary-container mb-8">Temukan koleksi apparel olahraga custom terbaik untuk tim Anda.</p>
+            
+            <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
+                <!-- Category Filter (Pills) -->
+                <div class="flex overflow-x-auto snap-x gap-3 pb-2 -mx-4 px-4 md:mx-0 md:px-0 w-full xl:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+                    <button class="snap-center shrink-0 px-6 py-2.5 rounded-full bg-primary-container text-background font-bold text-sm shadow-[0_0_16px_rgba(255,102,0,0.3)] transition-colors border-2 border-primary-container">Semua</button>
+                    <button class="snap-center shrink-0 px-6 py-2.5 rounded-full bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container transition-colors font-medium text-sm">Sepakbola</button>
+                    <button class="snap-center shrink-0 px-6 py-2.5 rounded-full bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container transition-colors font-medium text-sm">Futsal</button>
+                    <button class="snap-center shrink-0 px-6 py-2.5 rounded-full bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container transition-colors font-medium text-sm">Esports</button>
+                    <button class="snap-center shrink-0 px-6 py-2.5 rounded-full bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container transition-colors font-medium text-sm">Sepeda</button>
+                    <button class="snap-center shrink-0 px-6 py-2.5 rounded-full bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container transition-colors font-medium text-sm">Kasual</button>
+                </div>
+
+                <!-- Sorting Dropdown -->
+                <div class="relative w-full xl:w-64 shrink-0">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                        <span class="material-symbols-rounded text-primary-container text-lg">sort</span>
+                    </div>
+                    <select class="w-full bg-surface-container border-2 border-surface-container-highest text-on-surface text-sm rounded-full focus:ring-primary-container focus:border-primary-container block pl-11 pr-10 py-3 appearance-none cursor-pointer hover:border-primary-container/50 transition-colors font-bold outline-none">
+                        <option>Sortir: Terbaru</option>
+                        <option>Sortir: Terlaris</option>
+                        <option>Harga: Rendah ke Tinggi</option>
+                        <option>Harga: Tinggi ke Rendah</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                        <span class="material-symbols-rounded text-on-secondary-container text-lg">expand_more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-16">
+            <!-- Product 1 -->
+            <div class="group flex flex-col gap-4 cursor-pointer" onclick="window.location.href='product-detail.html'">
+                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+                    <img alt="Jersey Printing" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8mhvzYy3I8f0EvV5sDrAMVgsYXO8uitB9mhg9sfxoJNR36R7rcw0j-fbldgpUrHho1eQ0r34ZZtjYL1AXqphbeWriXC0UvACZuZUKfkKOrnYtU09HkuwkSryR-BpLu5ic-Mb_pDz38xLw0nD1snTJb5g23oIuaNZNOBe2qKaoGaOvt_H_0qtWSHhLa9SzhL3gmRP0mmrYYMGCsoF4BSU4-5K3eoz9UY_OkExqs7WgGioKD4GO5xOly53AhWURSmgt6ktKSdqlDVAc"/>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+                    </div>
+                </div>
+                <div class="flex flex-col px-2">
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Best Seller</p>
+                    <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">Custom Jersey Printing</h3>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                        <span class="font-bold text-primary-container text-sm sm:text-lg whitespace-nowrap">Rp 120.000</span>
+                        <span class="text-on-secondary-container text-xs sm:text-sm line-through decoration-on-secondary-container/50 whitespace-nowrap">Rp 160.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="group flex flex-col gap-4 cursor-pointer" onclick="window.location.href='product-detail.html'">
+                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+                    <img alt="Futsal & Soccer" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHSI26Ir0KULFTQ_uVlPRXTCNoqskDhpDAdnhEYkf4mQAvpOzDxuUXQC5b3CXno9xcKqJQN6Qd4xgGEfvcqFTUNfewXp8sX_dfBRf0F7eNu-w8KQWX-LGQgIeLuMp8b2VM3yIKcNsxjYwa57qxfTFF59P8jCMRy6y8o6_d9MtTN4k23LAyepnz-0RXxVoWr4pyPqI4CJDpW6ip1yQN2A6zvf8lJfR8hJZrxAXiPjlmQQH9QQw9AKPuR58pbC2u4kJu2Q9amm8WDMAq"/>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-red-600 text-white font-bold text-[10px] px-2 py-1 rounded">-15% OFF</div>
+                </div>
+                <div class="flex flex-col px-2">
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Pro Series</p>
+                    <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">Jersey Futsal & Soccer</h3>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                        <span class="font-bold text-primary-container text-sm sm:text-lg whitespace-nowrap">Rp 136.000</span>
+                        <span class="text-on-secondary-container text-xs sm:text-sm line-through decoration-on-secondary-container/50 whitespace-nowrap">Rp 160.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="group flex flex-col gap-4 cursor-pointer" onclick="window.location.href='product-detail.html'">
+                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+                    <img alt="Esports" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoB5FGvmuV4jzstq84J7t_5GSsJS9rRQgHXY-H9P7Z_4Hzart9FDi8_Ld8YMx1PaS8ALnMXcmL7JupfheWwr0q1oNWBj-rSOg_DQxDRiPHHekp7EvdbONPyZf9mlW5X1Y_HmAclRvhEgQgMMxzovHLwg_jty0TamDpEZvyQ8vTXmoE_R1aqKHPkZINdEBYyTcHDpBUJWVBHwaBf6_QuYLPP__PTV4vkYY0mb7munYgTwhM5_9-AqEV4jkxW6kBD67l-wlhsnrwyrVs"/>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+                    </div>
+                </div>
+                <div class="flex flex-col px-2">
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Gaming Team</p>
+                    <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">Jersey Esports Pro</h3>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                        <span class="font-bold text-primary-container text-sm sm:text-lg whitespace-nowrap">Rp 150.000</span>
+                        <span class="text-on-secondary-container text-xs sm:text-sm line-through decoration-on-secondary-container/50 whitespace-nowrap">Rp 200.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="group flex flex-col gap-4 cursor-pointer" onclick="window.location.href='product-detail.html'">
+                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+                    <img alt="Cycling" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGQTEQbZzXjQJFtR55LY3iSuXfWO6HPxLAVF7XIdEba3hJozYFdu7DN63R8E8Io1VihRzIQfZOO2hBbVfxtZH2wekwdYv3jtptFspRm54HxCrHNWfXzVAjpGb4y0cKlbNQYJMpd-RnJ67uKG8pIxPeg_HXGxnYRIlZGj1yEYykBY8EjFSZ76D0oVkBiUYF3ZwVp-VzCMwEJaqLF7YQSQDpClMB2eo39f0ivgk_J0fXlxOgdOGcDPGSSAwWL4faExLwg-yjMVd1Qmca"/>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-red-600 text-white font-bold text-[10px] px-2 py-1 rounded">-25% OFF</div>
+                </div>
+                <div class="flex flex-col px-2">
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Aero Fit</p>
+                    <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">Cycling Jersey Elite</h3>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                        <span class="font-bold text-primary-container text-sm sm:text-lg whitespace-nowrap">Rp 180.000</span>
+                        <span class="text-on-secondary-container text-xs sm:text-sm line-through decoration-on-secondary-container/50 whitespace-nowrap">Rp 240.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 (Duplicate for grid filling) -->
+            <div class="group flex flex-col gap-4 cursor-pointer" onclick="window.location.href='product-detail.html'">
+                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+                    <img alt="Jersey Printing" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8mhvzYy3I8f0EvV5sDrAMVgsYXO8uitB9mhg9sfxoJNR36R7rcw0j-fbldgpUrHho1eQ0r34ZZtjYL1AXqphbeWriXC0UvACZuZUKfkKOrnYtU09HkuwkSryR-BpLu5ic-Mb_pDz38xLw0nD1snTJb5g23oIuaNZNOBe2qKaoGaOvt_H_0qtWSHhLa9SzhL3gmRP0mmrYYMGCsoF4BSU4-5K3eoz9UY_OkExqs7WgGioKD4GO5xOly53AhWURSmgt6ktKSdqlDVAc"/>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+                    </div>
+                </div>
+                <div class="flex flex-col px-2">
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Streetwear</p>
+                    <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">Casual Sport Tee</h3>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                        <span class="font-bold text-primary-container text-sm sm:text-lg whitespace-nowrap">Rp 100.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="group flex flex-col gap-4 cursor-pointer" onclick="window.location.href='product-detail.html'">
+                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+                    <img alt="Futsal & Soccer" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHSI26Ir0KULFTQ_uVlPRXTCNoqskDhpDAdnhEYkf4mQAvpOzDxuUXQC5b3CXno9xcKqJQN6Qd4xgGEfvcqFTUNfewXp8sX_dfBRf0F7eNu-w8KQWX-LGQgIeLuMp8b2VM3yIKcNsxjYwa57qxfTFF59P8jCMRy6y8o6_d9MtTN4k23LAyepnz-0RXxVoWr4pyPqI4CJDpW6ip1yQN2A6zvf8lJfR8hJZrxAXiPjlmQQH9QQw9AKPuR58pbC2u4kJu2Q9amm8WDMAq"/>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+                    </div>
+                </div>
+                <div class="flex flex-col px-2">
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Accessories</p>
+                    <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">Team Training Bibs</h3>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                        <span class="font-bold text-primary-container text-sm sm:text-lg whitespace-nowrap">Rp 45.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="group flex flex-col gap-4 cursor-pointer" onclick="window.location.href='product-detail.html'">
+                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+                    <img alt="Esports" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoB5FGvmuV4jzstq84J7t_5GSsJS9rRQgHXY-H9P7Z_4Hzart9FDi8_Ld8YMx1PaS8ALnMXcmL7JupfheWwr0q1oNWBj-rSOg_DQxDRiPHHekp7EvdbONPyZf9mlW5X1Y_HmAclRvhEgQgMMxzovHLwg_jty0TamDpEZvyQ8vTXmoE_R1aqKHPkZINdEBYyTcHDpBUJWVBHwaBf6_QuYLPP__PTV4vkYY0mb7munYgTwhM5_9-AqEV4jkxW6kBD67l-wlhsnrwyrVs"/>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+                    </div>
+                </div>
+                <div class="flex flex-col px-2">
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Gaming Team</p>
+                    <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">Pro Esports Jacket</h3>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                        <span class="font-bold text-primary-container text-sm sm:text-lg whitespace-nowrap">Rp 250.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="group flex flex-col gap-4 cursor-pointer" onclick="window.location.href='product-detail.html'">
+                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
+                    <img alt="Cycling" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGQTEQbZzXjQJFtR55LY3iSuXfWO6HPxLAVF7XIdEba3hJozYFdu7DN63R8E8Io1VihRzIQfZOO2hBbVfxtZH2wekwdYv3jtptFspRm54HxCrHNWfXzVAjpGb4y0cKlbNQYJMpd-RnJ67uKG8pIxPeg_HXGxnYRIlZGj1yEYykBY8EjFSZ76D0oVkBiUYF3ZwVp-VzCMwEJaqLF7YQSQDpClMB2eo39f0ivgk_J0fXlxOgdOGcDPGSSAwWL4faExLwg-yjMVd1Qmca"/>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="bg-background/80 backdrop-blur-md text-primary-container px-6 py-2 rounded-full font-bold text-sm tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Lihat Detail</span>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-red-600 text-white font-bold text-[10px] px-2 py-1 rounded">-10% OFF</div>
+                </div>
+                <div class="flex flex-col px-2">
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">Accessories</p>
+                    <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">Cycling Base Layer</h3>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                        <span class="font-bold text-primary-container text-sm sm:text-lg whitespace-nowrap">Rp 81.000</span>
+                        <span class="text-on-secondary-container text-xs sm:text-sm line-through decoration-on-secondary-container/50 whitespace-nowrap">Rp 90.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center border-t border-surface-container-highest pt-8 mt-12">
+            <nav class="flex items-center gap-2">
+                <button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-secondary-container hover:bg-surface-container-highest transition-colors disabled:opacity-50 cursor-not-allowed" disabled aria-label="Previous page">
+                    <span class="material-symbols-rounded text-xl">chevron_left</span>
+                </button>
+                <button class="w-10 h-10 rounded-lg bg-primary-container text-background flex items-center justify-center font-bold glow-primary" aria-current="page">1</button>
+                <button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-highest hover:text-primary-container transition-colors">2</button>
+                <button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-highest hover:text-primary-container transition-colors">3</button>
+                <span class="text-on-secondary-container px-2">...</span>
+                <button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-highest hover:text-primary-container transition-colors">12</button>
+                <button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-highest hover:text-primary-container transition-colors" aria-label="Next page">
+                    <span class="material-symbols-rounded text-xl">chevron_right</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-surface-container-highest w-full pt-xl pb-8">
+    <div class="max-w-container-max mx-auto px-4 md:px-md">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Brand Col -->
+            <div class="flex flex-col gap-6">
+                <div class="font-headline-lg text-headline-md font-black text-primary-container italic tracking-tighter">AMERYGO</div>
+                <p class="text-on-secondary-container text-sm leading-relaxed">
+                    Produsen pakaian olahraga custom premium terpercaya di Indonesia. Berkomitmen menghadirkan jersey kualitas terbaik untuk mendukung performa maksimal tim Anda di lapangan.
+                </p>
+                <div class="flex gap-4 mt-2">
+                    <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container hover:text-background transition-colors" href="#"><span class="material-symbols-rounded">camera_alt</span></a>
+                    <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container hover:text-background transition-colors" href="#"><span class="material-symbols-rounded">play_arrow</span></a>
+                    <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container hover:text-background transition-colors" href="#"><span class="material-symbols-rounded">tag</span></a>
+                </div>
+            </div>
+            <!-- Links 1 -->
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-lg text-on-surface mb-2">Produk Kami</h4>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Jersey Sepakbola / Futsal</a>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Jersey Basket</a>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Jersey Esports</a>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Jersey Sepeda</a>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Tracksuit &amp; Jaket Tim</a>
+            </div>
+            <!-- Links 2 -->
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-lg text-on-surface mb-2">Informasi</h4>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Tentang Kami</a>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Cara Pemesanan</a>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Syarat &amp; Ketentuan</a>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Kebijakan Privasi</a>
+                <a class="text-on-secondary-container hover:text-primary-container transition-colors text-sm" href="#">Lacak Pesanan</a>
+            </div>
+            <!-- Contact -->
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-lg text-on-surface mb-2">Hubungi Kami</h4>
+                <div class="flex items-start gap-3 text-on-secondary-container text-sm">
+                    <span class="material-symbols-rounded text-primary-container shrink-0">location_on</span>
+                    <p>Jl. Olahraga No. 88, Sport District, Jakarta Pusat 10210, Indonesia</p>
+                </div>
+                <div class="flex items-center gap-3 text-on-secondary-container text-sm mt-2">
+                    <span class="material-symbols-rounded text-primary-container shrink-0">phone</span>
+                    <p>+62 812 3456 7890</p>
+                </div>
+                <div class="flex items-center gap-3 text-on-secondary-container text-sm mt-2">
+                    <span class="material-symbols-rounded text-primary-container shrink-0">mail</span>
+                    <p>hello@amerygosport.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="pt-8 border-t border-surface-container-highest flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-body-md text-sm text-on-secondary-container">
+                © 2024 AMERYGO SPORT. ALL RIGHTS RESERVED.
+            </div>
+            <div class="flex gap-6 text-sm text-on-secondary-container">
+                <span>Powered by AMERYGO Tech</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function openMenu() {
+        mobileMenuOverlay.classList.remove('hidden');
+        void mobileMenuOverlay.offsetWidth;
+        mobileMenuOverlay.classList.remove('opacity-0');
+        mobileMenu.classList.remove('-translate-x-full');
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.add('-translate-x-full');
+        mobileMenuOverlay.classList.add('opacity-0');
+        setTimeout(() => {
+            mobileMenuOverlay.classList.add('hidden');
+        }, 300);
+    }
+
+    mobileMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', closeMenu);
+</script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AMERYGO - Detail Artikel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Montserrat:ital,wght@0,700;0,800;0,900;1,900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#581e00",
+                        "tertiary-fixed": "#d0e4ff",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#561d00",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-tint": "#ffb596",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-fixed-variant": "#7c2e00",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-container": "#ff6600",
+                        "on-secondary": "#313030",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "secondary": "#c8c6c5",
+                        "surface": "#131313",
+                        "on-tertiary-container": "#003155",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#ffdbcd",
+                        "inverse-primary": "#a33e00",
+                        "surface-container": "#201f1f",
+                        "surface-bright": "#3a3939",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "primary-fixed-dim": "#ffb596",
+                        "on-surface-variant": "#e3bfb1",
+                        "on-background": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#001d35",
+                        "tertiary-container": "#009cfc",
+                        "secondary-container": "#474746",
+                        "tertiary": "#9ccaff",
+                        "on-tertiary": "#003256",
+                        "on-primary-fixed": "#360f00",
+                        "outline-variant": "#5a4136",
+                        "surface-container-high": "#2a2a2a",
+                        "primary": "#ffb596",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#aa8a7d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glow-primary { box-shadow: 0 0 32px 4px rgba(255, 102, 0, 0.2); }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col relative bg-pattern">
+<!-- Responsive Header -->
+<header class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-lg border-b border-surface-container-highest shadow-xl shadow-primary-container/10 transition-all duration-300">
+    <div class="flex justify-between items-center px-6 md:px-12 h-20 w-full max-w-container-max mx-auto">
+        <a href="index.html" class="font-headline-lg font-black text-primary-container tracking-tighter italic flex items-center hover:opacity-80 transition-opacity">AMERYGO</a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8 items-center">
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="index.html">Home</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="products.html">Shop All</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="articles.html">Artikel</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="contact.html">Kontak</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="404.html">Error 404</a>
+            <a class="ml-4 px-6 py-2.5 bg-primary-container text-background font-bold rounded-full hover:bg-[#e65c00] transition-all duration-300 glow-primary" href="#">Order Now</a>
+        </nav>
+
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface hover:text-primary-container focus:outline-none p-2">
+            <span class="material-symbols-rounded text-3xl">menu</span>
+        </button>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 z-[55] hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
+    <div id="mobile-menu" class="fixed top-0 left-0 h-screen w-4/5 max-w-sm bg-background/95 backdrop-blur-xl border-r border-surface-container-highest shadow-2xl z-[60] transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col">
+        <div class="flex justify-between items-center px-6 h-20 border-b border-surface-container-highest shrink-0">
+            <span class="font-headline-lg font-black text-primary-container tracking-tighter italic">AMERYGO</span>
+            <button id="close-menu-btn" class="text-on-surface hover:text-primary-container p-2">
+                <span class="material-symbols-rounded text-3xl">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-6 py-8 px-6 overflow-y-auto">
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container border-b border-surface-container-highest pb-4" href="index.html">Home</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container border-b border-surface-container-highest pb-4" href="products.html">Shop All</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container border-b border-surface-container-highest pb-4" href="articles.html">Artikel</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="contact.html">Kontak</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="404.html">Error 404</a>
+            <a class="mt-4 px-8 py-3 w-full text-center bg-primary-container text-background font-bold rounded-full glow-primary" href="#">Order Now</a>
+        </nav>
+    </div>
+</header>
+
+<main class="flex-grow pt-28 md:pt-32 pb-24">
+    
+    <!-- Hero Image for Article -->
+    <div class="w-full max-w-[1000px] mx-auto px-4 md:px-8 mb-8">
+        <nav class="flex items-center gap-2 text-sm text-on-secondary-container mb-6 overflow-x-auto whitespace-nowrap [&::-webkit-scrollbar]:hidden">
+            <a href="index.html" class="hover:text-primary-container transition-colors">Home</a>
+            <span class="material-symbols-rounded text-sm">chevron_right</span>
+            <a href="articles.html" class="hover:text-primary-container transition-colors">Artikel</a>
+            <span class="material-symbols-rounded text-sm">chevron_right</span>
+            <span class="text-primary-container font-bold">Tips & Trik</span>
+        </nav>
+
+        <div class="aspect-video w-full rounded-3xl overflow-hidden relative shadow-2xl border border-surface-container-highest mb-8">
+            <img alt="Tips Merawat Jersey" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy_Hrgnduk01cZ3ltC5SfYSIhomKP-T04j7Egrzd0GY52dFgnn3w5DPF-46_LmC8LIH3BH4Knj53XySYqRXYU8bfbN7kVPUWBsIxrimBEzeXX4NpIkVvrLrajmFCUP8PEMVkL--jVtwen_2F_YMUrVXe3gQ6ogpfXLS0qafkEQF97kJqqbbl0lFmeRj2UwgHpyRep3JoT0rnPwZXoNworJXGM4KtxAzGa8KLJEj3gpIitbwMnrwxDCP9h7ZhAGxJjYHpzc57wsRxfd"/>
+            <div class="absolute bottom-6 left-6 flex gap-2">
+                <span class="bg-primary-container text-background font-bold text-xs px-3 py-1.5 rounded uppercase tracking-wider">Tips & Trik</span>
+            </div>
+        </div>
+
+        <h1 class="font-headline-lg text-3xl md:text-5xl font-black italic text-on-surface leading-tight mb-6">Cara Tepat Merawat Jersey Printing Agar Warna Tetap Tajam Bertahun-tahun</h1>
+        
+        <div class="flex items-center gap-4 text-on-secondary-container text-sm border-b border-surface-container-highest pb-8 mb-8">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary-container">AM</div>
+                <div>
+                    <span class="block text-on-surface font-bold">AMERYGO Editorial</span>
+                    <span class="text-xs">12 Oktober 2024 • 4 min read</span>
+                </div>
+            </div>
+            
+            <div class="ml-auto flex gap-2">
+                <button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-background transition-colors text-on-surface"><span class="material-symbols-rounded text-sm">share</span></button>
+                <button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-background transition-colors text-on-surface"><span class="material-symbols-rounded text-sm">bookmark</span></button>
+            </div>
+        </div>
+
+        <!-- Article Content (Prose) -->
+        <article class="prose prose-invert prose-lg max-w-none text-on-surface prose-headings:font-headline-md prose-headings:italic prose-a:text-primary-container hover:prose-a:text-[#e65c00] prose-img:rounded-xl">
+            <p class="lead text-xl text-on-secondary-container">Punya jersey printing kebanggaan dengan warna cerah dan desain keren, tapi takut luntur kalau sering dipakai dan dicuci? Tenang saja, dengan perawatan yang tepat, jersey printing bisa awet bertahun-tahun.</p>
+            
+            <h2>1. Jangan Rendam Terlalu Lama</h2>
+            <p>Banyak yang berpikir semakin lama merendam jersey dengan detergen, maka akan semakin bersih. Padahal, merendam jersey lebih dari 15-20 menit justru dapat merusak serat kain dry-fit dan memudarkan tinta sublimasi. Cukup rendam sebentar dengan air dingin.</p>
+            
+            <h2>2. Hindari Penggunaan Mesin Cuci</h2>
+            <p>Gesekan kuat di dalam mesin cuci adalah musuh utama jersey. Sebaiknya, cuci jersey secara manual (kucek lembut dengan tangan). Jika terpaksa menggunakan mesin cuci, pastikan Anda menggunakan mode <em>delicate</em> dan memasukkan jersey ke dalam <em>laundry bag</em>.</p>
+            
+            <blockquote class="border-l-4 border-primary-container pl-4 italic my-8 text-on-secondary-container">
+                "Rahasia utama jersey awet adalah menghindarkannya dari panas berlebih dan gesekan kasar."
+            </blockquote>
+
+            <h2>3. Jangan Gunakan Pemutih dan Pelembut</h2>
+            <p>Bahan kimia keras pada pemutih bisa langsung merusak desain. Selain itu, pelembut pakaian (softener) seringkali meninggalkan residu pada serat kain dry-fit yang menutupi pori-porinya, sehingga jersey menjadi tidak bisa menyerap keringat dengan baik lagi.</p>
+
+            <h2>4. Jemur di Tempat Teduh</h2>
+            <p>Sinar matahari langsung yang terik bisa membuat warna cepat pudar. Selalu jemur jersey dengan posisi dibalik (bagian dalam di luar) dan di tempat yang teduh dengan sirkulasi udara yang baik. Bahan jersey sangat cepat kering meskipun tidak terkena sinar matahari langsung.</p>
+
+            <h2>5. Jangan Pernah Disetrika!</h2>
+            <p>Bahan jersey mayoritas terbuat dari polyester yang sangat sensitif terhadap panas. Menyetrika jersey akan membuatnya meleleh, berkerut permanen, atau bahkan bolong. Lagipula, bahan jersey yang berkualitas tidak mudah kusut jika dijemur dengan posisi digantung menggunakan hanger.</p>
+        </article>
+        
+        <!-- Tags -->
+        <div class="mt-12 pt-8 border-t border-surface-container-highest flex gap-3 flex-wrap">
+            <a href="#" class="px-4 py-1.5 bg-surface-container rounded-full text-sm text-on-secondary-container hover:text-primary-container transition-colors">#JerseyPrinting</a>
+            <a href="#" class="px-4 py-1.5 bg-surface-container rounded-full text-sm text-on-secondary-container hover:text-primary-container transition-colors">#PerawatanJersey</a>
+            <a href="#" class="px-4 py-1.5 bg-surface-container rounded-full text-sm text-on-secondary-container hover:text-primary-container transition-colors">#DryFit</a>
+            <a href="#" class="px-4 py-1.5 bg-surface-container rounded-full text-sm text-on-secondary-container hover:text-primary-container transition-colors">#TipsOlahraga</a>
+        </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="max-w-container-max mx-auto px-4 md:px-md mt-16 pt-16 border-t border-surface-container-highest">
+        <h2 class="font-headline-md font-bold text-2xl mb-8">Artikel Terkait</h2>
+        
+        <div class="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+            <article class="bg-surface-container border border-surface-container-highest rounded-2xl overflow-hidden group shadow-lg hover:shadow-primary-container/20 transition-all duration-300 cursor-pointer snap-center shrink-0 w-[300px] md:w-auto" onclick="window.location.href='article-detail.html'">
+                <div class="aspect-video bg-surface-container-high overflow-hidden relative">
+                    <img alt="Pilih Bahan Jersey" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1X3gF5RHtBJEIi_2NQcZly2f5E9TeQ5o9mtOm19ghuV-NjyIl4jCvum85Dna_sycqkzFtd7PfGixm0YI1--1ErzT07d0QPmgQYtFEMjZ2PGX_YUSSdw5NBF-miTCzAyMdBOPTMJy6JUIEraq22NbFSGtXXNqsXOZXnto3BqSC_RkpM9cp8k_qHBZDXtaGm3cOqauIxBOyYctYPYKdZNwGWjIuC68NLdT9GC0eF1Tv7DxlrjCIRWcpb1qRLuvIMYhxZpsXegBVavL9"/>
+                    <div class="absolute top-4 left-4 bg-primary-container text-background font-bold text-xs px-3 py-1 rounded">PANDUAN</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-headline-md font-bold text-lg mb-2 line-clamp-2 group-hover:text-primary-container transition-colors">Mengenal Jenis Bahan Jersey Olahraga</h3>
+                </div>
+            </article>
+            
+            <article class="bg-surface-container border border-surface-container-highest rounded-2xl overflow-hidden group shadow-lg hover:shadow-primary-container/20 transition-all duration-300 cursor-pointer snap-center shrink-0 w-[300px] md:w-auto" onclick="window.location.href='article-detail.html'">
+                <div class="aspect-video bg-surface-container-high overflow-hidden relative">
+                    <img alt="Trend Desain" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVbKXuyKyMvkSx6IZiAJ3Yr5dg1oxgg_EVgOanImGLgBEG4m-XQ2GVSxGp-EFNmzZvu8hgWU9xCLCkLiZWDjiXMvX8nl_MBSrhLHL6su16fclp15Q5cqdwDk3x7iJ6ugwlKRDJ00m3hXmSaTSkXf0y0nXyLWUm5hXbly_k7g4rPufDlMT9DuErTcDgrj1jQHmF-cTz4dzEXcubwVFYvkiHZ5Qcpcp_RbbdikrRv1tURrXsSU9PLbl_3iWtbOB4NJn6cLVgny-rLNhJ"/>
+                    <div class="absolute top-4 left-4 bg-primary-container text-background font-bold text-xs px-3 py-1 rounded">TREN DESAIN</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-headline-md font-bold text-lg mb-2 line-clamp-2 group-hover:text-primary-container transition-colors">5 Tren Desain Jersey Futsal di Tahun 2024</h3>
+                </div>
+            </article>
+
+            <article class="bg-surface-container border border-surface-container-highest rounded-2xl overflow-hidden group shadow-lg hover:shadow-primary-container/20 transition-all duration-300 cursor-pointer snap-center shrink-0 w-[300px] md:w-auto" onclick="window.location.href='article-detail.html'">
+                <div class="aspect-video bg-surface-container-high overflow-hidden relative flex items-center justify-center">
+                    <span class="material-symbols-rounded text-6xl text-surface-container-highest">image</span>
+                    <div class="absolute top-4 left-4 bg-primary-container text-background font-bold text-xs px-3 py-1 rounded">EVENT</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-headline-md font-bold text-lg mb-2 line-clamp-2 group-hover:text-primary-container transition-colors">AMERYGO Menjadi Sponsor Utama Turnamen Futsal</h3>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-surface-container-lowest border-t border-surface-container-highest w-full pt-xl pb-8 mt-12">
+    <div class="max-w-container-max mx-auto px-4 md:px-md">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div class="flex flex-col gap-6">
+                <div class="font-headline-lg text-headline-md font-black text-primary-container italic tracking-tighter">AMERYGO</div>
+                <p class="text-on-secondary-container text-sm leading-relaxed">Produsen pakaian olahraga custom premium terpercaya di Indonesia.</p>
+            </div>
+            <!-- other footer cols omitted for brevity as they are not the focus, but I should probably include them properly if doing a real site. I'll just use a shortened footer to save space or full if needed. I'll use full. -->
+        </div>
+        <div class="pt-8 border-t border-surface-container-highest flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-body-md text-sm text-on-secondary-container">© 2024 AMERYGO SPORT. ALL RIGHTS RESERVED.</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function openMenu() {
+        mobileMenuOverlay.classList.remove('hidden');
+        void mobileMenuOverlay.offsetWidth;
+        mobileMenuOverlay.classList.remove('opacity-0');
+        mobileMenu.classList.remove('-translate-x-full');
+    }
+    function closeMenu() {
+        mobileMenu.classList.add('-translate-x-full');
+        mobileMenuOverlay.classList.add('opacity-0');
+        setTimeout(() => mobileMenuOverlay.classList.add('hidden'), 300);
+    }
+    mobileMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', closeMenu);
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AMERYGO - 404 Halaman Tidak Ditemukan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Montserrat:ital,wght@0,700;0,800;0,900;1,900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#581e00",
+                        "tertiary-fixed": "#d0e4ff",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#561d00",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-tint": "#ffb596",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-fixed-variant": "#7c2e00",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-container": "#ff6600",
+                        "on-secondary": "#313030",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "secondary": "#c8c6c5",
+                        "surface": "#131313",
+                        "on-tertiary-container": "#003155",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#ffdbcd",
+                        "inverse-primary": "#a33e00",
+                        "surface-container": "#201f1f",
+                        "surface-bright": "#3a3939",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "primary-fixed-dim": "#ffb596",
+                        "on-surface-variant": "#e3bfb1",
+                        "on-background": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#001d35",
+                        "tertiary-container": "#009cfc",
+                        "secondary-container": "#474746",
+                        "tertiary": "#9ccaff",
+                        "on-tertiary": "#003256",
+                        "on-primary-fixed": "#360f00",
+                        "outline-variant": "#5a4136",
+                        "surface-container-high": "#2a2a2a",
+                        "primary": "#ffb596",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#aa8a7d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glow-primary { box-shadow: 0 0 32px 4px rgba(255, 102, 0, 0.2); }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col relative bg-pattern">
+<!-- Responsive Header -->
+<header class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-lg border-b border-surface-container-highest shadow-xl shadow-primary-container/10 transition-all duration-300">
+    <div class="flex justify-between items-center px-6 md:px-12 h-20 w-full max-w-7xl mx-auto">
+        <a href="index.html" class="font-headline-lg font-black text-primary-container tracking-tighter italic flex items-center hover:opacity-80 transition-opacity">
+            AMERYGO
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8 items-center">
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="index.html">Home</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="products.html">Shop All</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="articles.html">Artikel</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="contact.html">Kontak</a>
+            <a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-300" href="404.html">Error 404</a>
+        </nav>
+
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface hover:text-primary-container focus:outline-none p-2">
+            <span class="material-symbols-rounded text-3xl">menu</span>
+        </button>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 z-[55] hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
+    <div id="mobile-menu" class="fixed top-0 left-0 h-screen w-4/5 max-w-sm bg-background/95 backdrop-blur-xl border-r border-surface-container-highest shadow-2xl z-[60] transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col">
+        <div class="flex justify-between items-center px-6 h-20 border-b border-surface-container-highest shrink-0">
+            <span class="font-headline-lg font-black text-primary-container tracking-tighter italic">AMERYGO</span>
+            <button id="close-menu-btn" class="text-on-surface hover:text-primary-container p-2">
+                <span class="material-symbols-rounded text-3xl">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-6 py-8 px-6 overflow-y-auto">
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container border-b border-surface-container-highest pb-4" href="index.html">Home</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container border-b border-surface-container-highest pb-4" href="products.html">Shop All</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container border-b border-surface-container-highest pb-4" href="articles.html">Artikel</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="contact.html">Kontak</a>
+            <a class="text-on-surface font-medium text-xl hover:text-primary-container transition-colors border-b border-surface-container-highest pb-4" href="404.html">Error 404</a>
+        </nav>
+    </div>
+</header>
+
+<main class="flex-grow flex items-center justify-center pt-20 px-4">
+    <div class="max-w-xl mx-auto text-center">
+        <!-- Huge 404 Text -->
+        <h1 class="font-headline-lg font-black italic text-[140px] md:text-[200px] leading-none text-surface-container-highest drop-shadow-2xl select-none relative inline-block">
+            404
+            <!-- Subtle gradient overlay on text to make it blend into background -->
+            <span class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></span>
+        </h1>
+        
+        <div class="relative -mt-16 md:-mt-24 z-10 space-y-6">
+            <h2 class="font-headline-md font-bold text-3xl md:text-5xl text-on-surface drop-shadow-md">Oops! Halaman Tidak Ditemukan</h2>
+            <p class="text-on-secondary-container text-lg md:text-xl max-w-md mx-auto leading-relaxed">
+                Maaf, halaman yang Anda cari sepertinya telah dipindahkan, dihapus, atau mungkin Anda salah mengetikkan alamat URL.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+                <a href="index.html" class="w-full sm:w-auto px-8 py-4 bg-primary-container text-background font-bold rounded-full hover:bg-[#e65c00] active:scale-[0.98] transition-all duration-300 glow-primary flex items-center justify-center gap-2">
+                    <span class="material-symbols-rounded text-xl">home</span> Kembali ke Beranda
+                </a>
+                <a href="products.html" class="w-full sm:w-auto px-8 py-4 bg-surface-container border border-surface-container-highest text-on-surface font-bold rounded-full hover:border-primary-container/50 hover:text-primary-container transition-all duration-300 flex items-center justify-center gap-2">
+                    <span class="material-symbols-rounded text-xl">shopping_cart</span> Belanja Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuOverlay.classList.remove('hidden');
+        void mobileMenuOverlay.offsetWidth;
+        mobileMenuOverlay.classList.remove('opacity-0');
+        mobileMenu.classList.remove('-translate-x-full');
+    });
+    const closeMenu = () => {
+        mobileMenu.classList.add('-translate-x-full');
+        mobileMenuOverlay.classList.add('opacity-0');
+        setTimeout(() => mobileMenuOverlay.classList.add('hidden'), 300);
+    };
+    closeMenuBtn.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', closeMenu);
+</script>
+</body>
+</html>

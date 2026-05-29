@@ -246,8 +246,11 @@
 <div class="font-body-md text-sm text-on-secondary-container">
             © 2024 AMERYGO SPORT. ALL RIGHTS RESERVED.
         </div>
-<div class="flex gap-6 text-sm text-on-secondary-container">
-<span>Powered by AMERYGO Tech</span>
+<div class="flex items-center gap-2 text-sm text-on-secondary-container">
+    <span>Crafted with</span>
+    <i class="ki-duotone ki-heart text-error text-lg"><span class="path1"></span><span class="path2"></span></i>
+    <span>by</span>
+    <img src="{{ asset('assets/logos/logo_2.png') }}" class="h-6" alt="Artspace Production">
 </div>
 </div>
 </div>

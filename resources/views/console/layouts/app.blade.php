@@ -73,8 +73,8 @@ License: For each use you must have a valid license purchased only from above li
             <span class="me-2">Crafted with</span>
             <i class="ki-duotone ki-heart text-danger fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
             <span class="me-2">by</span>
-            <img src="{{ asset('assets/logos/logo_1.png') }}" class="h-20px theme-light-show" alt="Artspace Production">
-            <img src="{{ asset('assets/logos/logo_2.png') }}" class="h-20px theme-dark-show" alt="Artspace Production">
+            <img src="{{ asset('assets/logos/logo_1.png') }}" class="h-30px theme-light-show" alt="Artspace Production">
+            <img src="{{ asset('assets/logos/logo_2.png') }}" class="h-30px theme-dark-show" alt="Artspace Production">
         </div>
         <!--end::Crafted-->
     </div>

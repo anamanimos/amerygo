@@ -250,7 +250,9 @@
     <span>Crafted with</span>
     <i class="ki-duotone ki-heart text-error text-lg"><span class="path1"></span><span class="path2"></span></i>
     <span>by</span>
-    <img src="{{ asset('assets/logos/logo_2.png') }}" class="h-6" alt="Artspace Production">
+    <a href="https://artspaceproduction.my.id" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity flex items-center">
+        <img src="{{ asset('assets/logos/logo_2.png') }}" class="h-12" alt="Artspace Production">
+    </a>
 </div>
 </div>
 </div>

@@ -58,7 +58,7 @@ License: For each use you must have a valid license purchased only from above li
 							@yield('content')
 						</div>
 						<!--end::Content wrapper-->
-						<!--begin::Footer-->
+<!--begin::Footer-->
 <div id="kt_app_footer" class="app-footer">
     <!--begin::Footer container-->
     <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
@@ -68,6 +68,15 @@ License: For each use you must have a valid license purchased only from above li
             <a href="#" class="text-gray-800 text-hover-primary">AMERYGO</a>
         </div>
         <!--end::Copyright-->
+        <!--begin::Crafted-->
+        <div class="text-gray-600 order-1 order-md-2 d-flex align-items-center fw-semibold">
+            <span class="me-2">Crafted with</span>
+            <i class="ki-duotone ki-heart text-danger fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+            <span class="me-2">by</span>
+            <img src="{{ asset('assets/logos/logo_1.png') }}" class="h-20px theme-light-show" alt="Artspace Production">
+            <img src="{{ asset('assets/logos/logo_2.png') }}" class="h-20px theme-dark-show" alt="Artspace Production">
+        </div>
+        <!--end::Crafted-->
     </div>
     <!--end::Footer container-->
 </div>

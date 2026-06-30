@@ -35,6 +35,7 @@ License: For each use you must have a valid license purchased only from above li
 		<link href="{{ asset('metronic/assets/') }}/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
+		@stack('styles')
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->

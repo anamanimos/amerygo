@@ -28,10 +28,14 @@ class DesignCategoryController extends Controller
         
         $data['slug'] = Str::slug($data['name']);
 
-        DesignCategory::create($data);
+        $category = DesignCategory::create($data);
 
         if ($request->ajax()) {
-            return response()->json(['success' => true, 'message' => 'Kategori desain berhasil ditambahkan.']);
+            return response()->json([
+                'success' => true, 
+                'message' => 'Kategori desain berhasil ditambahkan.',
+                'category' => $category
+            ]);
         }
 
         return redirect()->route('console.design_categories.index')->with('success', 'Kategori desain berhasil ditambahkan.');

@@ -33,8 +33,9 @@ class DesignController extends Controller
 
         $designs = $query->latest()->paginate(12)->withQueryString();
         $categories = DesignCategory::where('is_active', true)->get();
+        $whatsappNumber = Setting::where('key', 'whatsapp_number')->value('value') ?? '6281234567890';
 
-        return view('pages.designs.index', compact('designs', 'categories'));
+        return view('pages.designs.index', compact('designs', 'categories', 'whatsappNumber'));
     }
 
     public function show($slug)

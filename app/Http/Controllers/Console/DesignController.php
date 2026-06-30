@@ -49,7 +49,7 @@ class DesignController extends Controller
             'name' => 'required|string|max:255',
             'design_category_id' => 'required|exists:design_categories,id',
             'description' => 'nullable|string',
-            'image' => 'required|image|max:2048',
+            'cropped_image' => 'required|string',
             'is_active' => 'boolean',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
@@ -67,9 +67,17 @@ class DesignController extends Controller
 
         $data['is_active'] = $request->has('is_active');
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('public/designs');
-            $data['image'] = str_replace('public/', 'storage/', $path);
+        if ($request->filled('cropped_image')) {
+            $base64Image = $request->input('cropped_image');
+            $imageParts = explode(";base64,", $base64Image);
+            $imageTypeAux = explode("image/", $imageParts[0]);
+            $imageType = $imageTypeAux[1];
+            $imageBase64 = base64_decode($imageParts[1]);
+            
+            $filename = uniqid() . '.' . $imageType;
+            
+            Storage::disk('public')->put('designs/' . $filename, $imageBase64);
+            $data['image'] = 'storage/designs/' . $filename;
         }
 
         Design::create($data);
@@ -93,7 +101,7 @@ class DesignController extends Controller
             'name' => 'required|string|max:255',
             'design_category_id' => 'required|exists:design_categories,id',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|max:2048',
+            'cropped_image' => 'nullable|string',
             'is_active' => 'boolean',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
@@ -111,15 +119,23 @@ class DesignController extends Controller
 
         $data['is_active'] = $request->has('is_active');
 
-        if ($request->hasFile('image')) {
+        if ($request->filled('cropped_image')) {
             if ($design->image) {
-                Storage::delete(str_replace('storage/', 'public/', $design->image));
+                Storage::disk('public')->delete(str_replace('storage/', '', $design->image));
             }
-            $path = $request->file('image')->store('public/designs');
-            $data['image'] = str_replace('public/', 'storage/', $path);
+            $base64Image = $request->input('cropped_image');
+            $imageParts = explode(";base64,", $base64Image);
+            $imageTypeAux = explode("image/", $imageParts[0]);
+            $imageType = $imageTypeAux[1];
+            $imageBase64 = base64_decode($imageParts[1]);
+            
+            $filename = uniqid() . '.' . $imageType;
+            
+            Storage::disk('public')->put('designs/' . $filename, $imageBase64);
+            $data['image'] = 'storage/designs/' . $filename;
         } elseif ($request->input('avatar_remove') == '1') {
             if ($design->image) {
-                Storage::delete(str_replace('storage/', 'public/', $design->image));
+                Storage::disk('public')->delete(str_replace('storage/', '', $design->image));
             }
             $data['image'] = null;
         }
@@ -136,7 +152,7 @@ class DesignController extends Controller
     public function destroy(Design $design)
     {
         if ($design->image) {
-            Storage::delete(str_replace('storage/', 'public/', $design->image));
+            Storage::disk('public')->delete(str_replace('storage/', '', $design->image));
         }
         $design->delete();
         return redirect()->route('console.designs.index')->with('success', 'Desain jersey berhasil dihapus.');

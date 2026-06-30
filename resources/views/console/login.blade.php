@@ -4,7 +4,12 @@
     <title>Sign In - Console</title>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    @php $favicon = \App\Models\Setting::where('key', 'site_favicon')->first()?->value; @endphp
+    @if($favicon)
+    <link rel="shortcut icon" href="{{ asset($favicon) }}" />
+    @else
     <link rel="shortcut icon" href="{{ asset('metronic/assets/media/logos/favicon.ico') }}" />
+    @endif
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>

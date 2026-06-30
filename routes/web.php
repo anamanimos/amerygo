@@ -45,6 +45,8 @@ Route::get('/designs/{slug}', [\App\Http\Controllers\Frontend\DesignController::
 Route::get('/articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
+Route::get('/feed', [\App\Http\Controllers\FeedController::class, 'rss'])->name('feed');
+
 
 Route::get('/contact', function () {
     return view('pages.contact');

@@ -146,6 +146,37 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Katalog Desain -->
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ request()->routeIs('console.designs.*') || request()->routeIs('console.design_categories.*') ? 'here show' : '' }}">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-picture fs-2">
+                                    <span class="path1"></span><span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Katalog Desain</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <div class="menu-sub menu-sub-accordion">
+                            <div class="menu-item">
+                                <a class="menu-link {{ request()->routeIs('console.designs.index') ? 'active' : '' }}" href="{{ route('console.designs.index') }}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Semua Desain</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link {{ request()->routeIs('console.design_categories.index') ? 'active' : '' }}" href="{{ route('console.design_categories.index') }}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Kategori</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     
                     <!-- Tampilan -->
                     <div class="menu-item">

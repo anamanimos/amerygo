@@ -10,7 +10,7 @@ class SettingController extends Controller
 {
     public function global()
     {
-        $keys = ['site_name', 'whatsapp_number', 'site_favicon', 'seo_title', 'seo_description', 'seo_keywords', 'site_logo_light', 'site_logo_dark', 'site_logo_sm_light', 'site_logo_sm_dark'];
+        $keys = ['site_name', 'whatsapp_number', 'site_favicon', 'seo_title', 'seo_description', 'seo_keywords', 'site_logo_light', 'site_logo_dark', 'site_logo_sm_light', 'site_logo_sm_dark', 'limit_designs'];
         $settings = Setting::whereIn('key', $keys)->pluck('value', 'key')->toArray();
 
         return view('console.settings.global', compact('settings'));
@@ -18,7 +18,7 @@ class SettingController extends Controller
 
     public function updateGlobal(Request $request)
     {
-        $keys = ['site_name', 'whatsapp_number', 'seo_title', 'seo_description', 'seo_keywords'];
+        $keys = ['site_name', 'whatsapp_number', 'seo_title', 'seo_description', 'seo_keywords', 'limit_designs'];
         
         foreach ($keys as $key) {
             Setting::updateOrCreate(['key' => $key], ['value' => $request->$key]);

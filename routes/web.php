@@ -39,6 +39,9 @@ Route::get('/', function () {
 Route::get('/products', [\App\Http\Controllers\Frontend\ProductController::class, 'index'])->name('products');
 Route::get('/products/{slug}', [\App\Http\Controllers\Frontend\ProductController::class, 'show'])->name('products.show');
 
+Route::get('/designs', [\App\Http\Controllers\Frontend\DesignController::class, 'index'])->name('designs');
+Route::get('/designs/{slug}', [\App\Http\Controllers\Frontend\DesignController::class, 'show'])->name('designs.show');
+
 Route::get('/articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
@@ -166,6 +169,26 @@ Route::prefix('console')->group(function () {
             'edit' => 'console.products.edit',
             'update' => 'console.products.update',
             'destroy' => 'console.products.destroy',
+        ]);
+
+        Route::resource('design-categories', \App\Http\Controllers\Console\DesignCategoryController::class)->names([
+            'index' => 'console.design_categories.index',
+            'create' => 'console.design_categories.create',
+            'store' => 'console.design_categories.store',
+            'show' => 'console.design_categories.show',
+            'edit' => 'console.design_categories.edit',
+            'update' => 'console.design_categories.update',
+            'destroy' => 'console.design_categories.destroy',
+        ]);
+
+        Route::resource('designs', \App\Http\Controllers\Console\DesignController::class)->names([
+            'index' => 'console.designs.index',
+            'create' => 'console.designs.create',
+            'store' => 'console.designs.store',
+            'show' => 'console.designs.show',
+            'edit' => 'console.designs.edit',
+            'update' => 'console.designs.update',
+            'destroy' => 'console.designs.destroy',
         ]);
         
         Route::resource('users', \App\Http\Controllers\Console\UserController::class)->except(['show'])->names([

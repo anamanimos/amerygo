@@ -98,6 +98,14 @@
                 </div>
             </div>
 
+            <div class="row mb-8">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Batas Maksimal Desain Jersey</label>
+                    <input type="number" min="1" class="form-control form-control-solid" name="limit_designs" value="{{ $settings['limit_designs'] ?? '20' }}" placeholder="Contoh: 20" required />
+                    <div class="text-muted fs-7 mt-2">Batas jumlah desain jersey yang dapat diunggah ke katalog (Default: 20).</div>
+                </div>
+            </div>
+
             <!-- Logo Upload Section -->
             <h5 class="mb-4 text-gray-800 fw-bold mt-10">Logo & Ikon</h5>
             <div class="row mb-8">

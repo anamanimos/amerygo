@@ -17,7 +17,8 @@
                 <label class="form-label fw-bold">Logo Footer</label>
                 <div class="mb-3 d-flex align-items-center gap-4">
                     <div id="logoPreviewWrapper" class="border rounded p-2 d-inline-block" style="background-color: #f1f1f1; min-width:60px; min-height:40px;">
-                        <img id="logoPreview" src="{{ $logo ? asset($logo) : '' }}" alt="Logo Preview" class="h-50px" style="{{ $logo ? '' : 'display:none;' }}">
+                        @php $logoUrl = $logo ? (str_starts_with($logo, 'storage/') ? Storage::disk('public')->url(str_replace('storage/', '', $logo)) : asset($logo)) : ''; @endphp
+                        <img id="logoPreview" src="{{ $logoUrl }}" alt="Logo Preview" class="h-50px" style="{{ $logo ? '' : 'display:none;' }}">
                     </div>
                     <button type="button" class="btn btn-sm btn-light-primary" id="btnSelectLogo">
                         <i class="ki-duotone ki-picture fs-2 me-1"><span class="path1"></span><span class="path2"></span></i> Pilih & Crop Logo

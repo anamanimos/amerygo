@@ -37,6 +37,7 @@
             @foreach($designs as $design)
             <div class="group flex flex-col gap-4 cursor-pointer design-card" 
                  data-name="{{ $design->name }}"
+                 data-slug="{{ $design->slug }}"
                  data-image="{{ $design->image ? asset($design->image) : '' }}"
                  data-category="{{ $design->category ? $design->category->name : 'Uncategorized' }}"
                  onclick="openDesignModal(this)">
@@ -115,13 +116,15 @@
 <script>
     function openDesignModal(element) {
         const name = element.getAttribute('data-name');
+        const slug = element.getAttribute('data-slug');
         const image = element.getAttribute('data-image');
         const category = element.getAttribute('data-category');
         const description = element.querySelector('.hidden-description').innerHTML;
         
-        // Construct WA link
+        // Construct WA link with design page URL
+        const designUrl = window.location.origin + '/designs/' + slug;
         const waNumber = "{{ $whatsappNumber }}";
-        const waText = `Halo Admin, saya tertarik dengan desain jersey ${name} ini. Apakah bisa dibantu untuk pemesanannya?`;
+        const waText = `Halo Admin, saya tertarik dengan desain jersey ${name} ini (${designUrl}). Apakah bisa dibantu untuk pemesanannya?`;
         const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
         
         document.getElementById('modalTitle').innerText = name;

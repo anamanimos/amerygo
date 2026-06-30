@@ -1,12 +1,13 @@
 @php
     $resolveAssetUrl = function ($path) {
         if (empty($path)) return '';
+        if (str_starts_with($path, 'uploads/')) {
+            return asset($path);
+        }
         if (str_starts_with($path, 'storage/')) {
             return Storage::disk('public')->url(str_replace('storage/', '', $path));
         }
-        return env('PUBLIC_FILESYSTEM_DRIVER') === 's3' 
-            ? Storage::disk('public')->url($path) 
-            : asset($path);
+        return asset($path);
     };
 
     $headerLogoUrl = $resolveAssetUrl($headerLogo ?? '');

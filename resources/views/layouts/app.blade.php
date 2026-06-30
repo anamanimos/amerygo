@@ -1,3 +1,18 @@
+@php
+    $resolveAssetUrl = function ($path) {
+        if (empty($path)) return '';
+        if (str_starts_with($path, 'storage/')) {
+            return Storage::disk('public')->url(str_replace('storage/', '', $path));
+        }
+        return env('PUBLIC_FILESYSTEM_DRIVER') === 's3' 
+            ? Storage::disk('public')->url($path) 
+            : asset($path);
+    };
+
+    $headerLogoUrl = $resolveAssetUrl($headerLogo ?? '');
+    $footerLogoUrl = $resolveAssetUrl($footerLogo ?? '');
+    $faviconUrl = isset($globalSettings['site_favicon']) ? $resolveAssetUrl($globalSettings['site_favicon']) : '';
+@endphp
 <!DOCTYPE html>
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
@@ -10,7 +25,7 @@
 <meta name="keywords" content="{{ $globalSettings['seo_keywords'] }}">
 @endif
 @if(!empty($globalSettings['site_favicon']))
-<link rel="icon" href="{{ asset($globalSettings['site_favicon']) }}" type="image/x-icon">
+<link rel="icon" href="{{ $faviconUrl }}" type="image/x-icon">
 @else
 <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 @endif
@@ -122,7 +137,7 @@
         <!-- Logo -->
         <a href="{{ route('home') }}" class="flex items-center hover:opacity-80 transition-opacity">
             @if(!empty($headerLogo))
-                <img src="{{ asset($headerLogo) }}" alt="Logo" class="h-10 md:h-12">
+                <img src="{{ $headerLogoUrl }}" alt="Logo" class="h-10 md:h-12">
             @else
                 <span class="font-headline-lg font-black text-primary-container tracking-tighter italic">AMERYGO</span>
             @endif
@@ -157,7 +172,7 @@
     <div id="mobile-menu" class="fixed top-0 left-0 h-screen w-4/5 max-w-sm bg-background/95 backdrop-blur-xl border-r border-surface-container-highest shadow-2xl z-[60] transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col">
         <div class="flex justify-between items-center px-6 h-20 border-b border-surface-container-highest shrink-0">
             @if(!empty($headerLogo))
-                <img src="{{ asset($headerLogo) }}" alt="Logo" class="h-8">
+                <img src="{{ $headerLogoUrl }}" alt="Logo" class="h-8">
             @else
                 <span class="font-headline-lg font-black text-primary-container tracking-tighter italic">AMERYGO</span>
             @endif
@@ -191,7 +206,7 @@
 <div class="flex flex-col gap-6">
     <a href="{{ route('home') }}" class="flex items-center hover:opacity-80 transition-opacity">
         @if(!empty($footerLogo))
-            <img src="{{ asset($footerLogo) }}" alt="Footer Logo" class="h-10 md:h-12">
+            <img src="{{ $footerLogoUrl }}" alt="Footer Logo" class="h-10 md:h-12">
         @else
             <div class="font-headline-lg text-headline-md font-black text-primary-container italic tracking-tighter">AMERYGO</div>
         @endif

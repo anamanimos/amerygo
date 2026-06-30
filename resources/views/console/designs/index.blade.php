@@ -51,7 +51,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-50px me-3">
-                                        <img src="{{ $design->image ? asset($design->image) : 'https://ui-avatars.com/api/?name=Design&background=random' }}" style="object-fit: cover;" class="" alt="" />
+                                        <img src="{{ $design->image ? Storage::disk('public')->url(str_replace('storage/', '', $design->image)) : 'https://ui-avatars.com/api/?name=Design&background=random' }}" style="object-fit: cover;" class="" alt="" />
                                     </div>
                                     <div class="d-flex justify-content-start flex-column">
                                         <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">{{ $design->name }}</a>

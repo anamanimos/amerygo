@@ -93,7 +93,7 @@
 
                         <!-- Preview Area -->
                         <div id="thumbnail_preview_area" class="position-relative {{ isset($design) && $design->image ? '' : 'd-none' }} mb-3">
-                            <img id="thumbnail_preview_img" src="{{ isset($design) && $design->image ? asset($design->image) : '' }}" class="img-fluid rounded border w-100" style="max-height: 250px; object-fit: contain;" />
+                            <img id="thumbnail_preview_img" src="{{ isset($design) && $design->image ? Storage::disk('public')->url(str_replace('storage/', '', $design->image)) : '' }}" class="img-fluid rounded border w-100" style="max-height: 250px; object-fit: contain;" />
                             
                             <button type="button" id="btn_remove_thumbnail" class="btn btn-icon btn-circle btn-danger position-absolute top-0 end-0 mt-n3 me-n3 shadow-sm" data-bs-toggle="tooltip" title="Hapus Gambar">
                                 <i class="ki-duotone ki-cross fs-2"><span class="path1"></span><span class="path2"></span></i>

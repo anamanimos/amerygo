@@ -21,7 +21,7 @@
             
             <div class="w-full max-w-lg aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container-lowest mb-8 border border-surface-container-highest flex items-center justify-center">
                 @if($design->image)
-                    <img src="{{ asset($design->image) }}" alt="{{ $design->name }}" class="object-contain w-full h-full" />
+                    <img src="{{ Storage::disk('public')->url(str_replace('storage/', '', $design->image)) }}" alt="{{ $design->name }}" class="object-contain w-full h-full" />
                 @else
                     <div class="w-full h-full flex items-center justify-center">
                         <span class="material-symbols-rounded text-9xl text-on-secondary-container">image</span>

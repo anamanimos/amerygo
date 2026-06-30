@@ -38,7 +38,7 @@
             <div class="group flex flex-col gap-4 cursor-pointer design-card" 
                  data-name="{{ $design->name }}"
                  data-slug="{{ $design->slug }}"
-                 data-image="{{ $design->image ? asset($design->image) : '' }}"
+                 data-image="{{ $design->image ? Storage::disk('public')->url(str_replace('storage/', '', $design->image)) : '' }}"
                  data-category="{{ $design->category ? $design->category->name : 'Uncategorized' }}"
                  onclick="openDesignModal(this)">
                  
@@ -47,7 +47,7 @@
 
                 <div class="aspect-[4/5] relative overflow-hidden rounded-2xl bg-surface-container shadow-lg transition-shadow duration-300 group-hover:shadow-primary-container/20">
                     @if($design->image)
-                        <img alt="{{ $design->name }}" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="{{ asset($design->image) }}"/>
+                        <img alt="{{ $design->name }}" class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105" src="{{ Storage::disk('public')->url(str_replace('storage/', '', $design->image)) }}"/>
                     @else
                         <div class="w-full h-full flex items-center justify-center bg-surface-container-highest">
                             <span class="material-symbols-rounded text-6xl text-on-secondary-container">image</span>

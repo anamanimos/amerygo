@@ -262,7 +262,7 @@
 </div>
 <div class="pt-8 border-t border-surface-container-highest flex flex-col md:flex-row justify-between items-center gap-4">
 <div class="font-body-md text-sm text-on-secondary-container">
-            © 2024 AMERYGO SPORT. ALL RIGHTS RESERVED.
+            {{ \App\Models\Setting::where('key', 'footer_copyright')->first()?->value ?? '© ' . date('Y') . ' AMERYGO SPORT. ALL RIGHTS RESERVED.' }}
         </div>
 <div class="flex items-center gap-2 text-sm text-on-secondary-container">
     <span>Crafted with</span>

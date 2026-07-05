@@ -191,10 +191,11 @@ class AppearanceController extends Controller
         $menu1Title = Setting::where('key', 'footer_menu_1_title')->first()?->value ?? 'Produk Kami';
         $menu2Title = Setting::where('key', 'footer_menu_2_title')->first()?->value ?? 'Informasi';
         $contactTitle = Setting::where('key', 'footer_contact_title')->first()?->value ?? 'Hubungi Kami';
+        $copyright = Setting::where('key', 'footer_copyright')->first()?->value ?? '© ' . date('Y') . ' AMERYGO SPORT. ALL RIGHTS RESERVED.';
 
         return view('console.tampilan.footer', compact(
             'footerMenu1', 'footerMenu2', 'footerContact', 'footerSocial',
-            'logo', 'description', 'menu1Title', 'menu2Title', 'contactTitle'
+            'logo', 'description', 'menu1Title', 'menu2Title', 'contactTitle', 'copyright'
         ));
     }
 
@@ -206,6 +207,7 @@ class AppearanceController extends Controller
             'menu_1_title' => 'nullable|string|max:255',
             'menu_2_title' => 'nullable|string|max:255',
             'contact_title' => 'nullable|string|max:255',
+            'copyright' => 'nullable|string|max:255',
         ]);
 
         if ($request->filled('logo_cropped')) {
@@ -238,6 +240,7 @@ class AppearanceController extends Controller
         Setting::updateOrCreate(['key' => 'footer_menu_1_title'], ['value' => $request->menu_1_title]);
         Setting::updateOrCreate(['key' => 'footer_menu_2_title'], ['value' => $request->menu_2_title]);
         Setting::updateOrCreate(['key' => 'footer_contact_title'], ['value' => $request->contact_title]);
+        Setting::updateOrCreate(['key' => 'footer_copyright'], ['value' => $request->copyright]);
 
         if ($request->ajax()) {
             return response()->json(['success' => true, 'message' => 'Pengaturan footer berhasil disimpan.']);

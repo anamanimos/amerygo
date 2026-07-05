@@ -51,6 +51,15 @@
                     <input type="text" class="form-control form-control-solid" name="contact_title" value="{{ $contactTitle }}" />
                 </div>
             </div>
+
+            <div class="separator mb-8"></div>
+
+            <h4 class="mb-4 text-gray-800">3. Hak Cipta (Copyright)</h4>
+            <div class="mb-8">
+                <label class="form-label fw-bold">Teks Copyright</label>
+                <input type="text" class="form-control form-control-solid" name="copyright" value="{{ $copyright }}" placeholder="© 2024 AMERYGO SPORT. ALL RIGHTS RESERVED." />
+                <div class="text-muted fs-7 mt-2">Teks ini akan muncul di bagian paling bawah website.</div>
+            </div>
             
             <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary" id="btnSaveFooter">Simpan Pengaturan Utama</button>

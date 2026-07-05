@@ -27,12 +27,14 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'role' => ['required', Rule::in([User::ROLE_SUPER_ADMIN, User::ROLE_ADMIN])],
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => $request->role,
         ]);
 
         return redirect()->route('console.users.index')->with('success', 'Pengguna berhasil ditambahkan.');
@@ -45,15 +47,19 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $request->validate([
+        $rules = [
             'name' => 'required|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'password' => 'nullable|string|min:8|confirmed',
-        ]);
+            'role' => ['required', Rule::in([User::ROLE_SUPER_ADMIN, User::ROLE_ADMIN])],
+        ];
+
+        $request->validate($rules);
 
         $data = [
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
         ];
 
         if ($request->filled('password')) {
@@ -73,6 +79,11 @@ class UserController extends Controller
         
         if (auth()->id() === $user->id) {
             return redirect()->route('console.users.index')->with('error', 'Tidak dapat menghapus akun Anda sendiri saat sedang login.');
+        }
+
+        // Prevent non-super-admin from deleting super admin
+        if ($user->isSuperAdmin() && !auth()->user()->isSuperAdmin()) {
+            return redirect()->route('console.users.index')->with('error', 'Hanya Super Admin yang dapat menghapus akun Super Admin lain.');
         }
 
         $user->delete();

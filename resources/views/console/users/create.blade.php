@@ -44,6 +44,19 @@
                         <label class="required form-label">Email</label>
                         <input type="email" name="email" class="form-control mb-2" value="{{ old('email') }}" required />
                     </div>
+
+                    <div class="mb-10 fv-row">
+                        <label class="required form-label">Role</label>
+                        <select name="role" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Pilih Role" required>
+                            <option></option>
+                            <option value="super_admin" {{ old('role') == 'super_admin' ? 'selected' : '' }}>Super Admin</option>
+                            <option value="admin" {{ old('role', 'admin') == 'admin' ? 'selected' : '' }}>Admin</option>
+                        </select>
+                        <div class="text-muted fs-7 mt-2">
+                            <strong>Super Admin</strong> — Akses penuh ke semua fitur termasuk manajemen pengguna.<br>
+                            <strong>Admin</strong> — Akses ke fitur pengelolaan konten.
+                        </div>
+                    </div>
                     
                     <div class="mb-10 fv-row">
                         <label class="required form-label">Password</label>

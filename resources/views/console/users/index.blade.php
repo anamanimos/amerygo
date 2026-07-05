@@ -45,6 +45,7 @@
                         <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                             <th class="min-w-200px">Nama</th>
                             <th class="min-w-150px">Email</th>
+                            <th class="min-w-100px">Role</th>
                             <th class="min-w-150px">Terdaftar Pada</th>
                             <th class="text-end min-w-100px">Aksi</th>
                         </tr>
@@ -55,7 +56,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                        <div class="symbol-label fs-3 bg-light-primary text-primary">{{ substr($user->name, 0, 1) }}</div>
+                                        <div class="symbol-label fs-3 {{ $user->isSuperAdmin() ? 'bg-light-danger text-danger' : 'bg-light-primary text-primary' }}">{{ substr($user->name, 0, 1) }}</div>
                                     </div>
                                     <div class="d-flex flex-column">
                                         <a href="{{ route('console.users.edit', $user->id) }}" class="text-gray-800 text-hover-primary mb-1">{{ $user->name }}</a>
@@ -63,6 +64,13 @@
                                 </div>
                             </td>
                             <td>{{ $user->email }}</td>
+                            <td>
+                                @if($user->isSuperAdmin())
+                                    <span class="badge badge-light-danger fw-bold">Super Admin</span>
+                                @else
+                                    <span class="badge badge-light-primary fw-bold">Admin</span>
+                                @endif
+                            </td>
                             <td>{{ $user->created_at->format('d M Y') }}</td>
                             <td class="text-end">
                                 <a href="#" class="btn btn-sm btn-light btn-active-light-primary btn-flex btn-center" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -103,7 +111,7 @@
                 'order': [],
                 'pageLength': 10,
                 'columnDefs': [
-                    { orderable: false, targets: 3 },
+                    { orderable: false, targets: 4 },
                 ]
             });
             document.querySelector('[data-kt-user-table-filter="search"]').addEventListener('keyup', function (e) {

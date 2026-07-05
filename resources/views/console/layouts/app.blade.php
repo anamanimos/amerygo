@@ -65,8 +65,7 @@ License: For each use you must have a valid license purchased only from above li
     <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
         <!--begin::Copyright-->
         <div class="text-gray-900 order-2 order-md-1">
-            <span class="text-muted fw-semibold me-1">&copy; {{ date('Y') }}</span>
-            <a href="#" class="text-gray-800 text-hover-primary">AMERYGO</a>
+            {{ \App\Models\Setting::where('key', 'footer_copyright')->first()?->value ?? '© ' . date('Y') . ' AMERYGO SPORT. ALL RIGHTS RESERVED.' }}
         </div>
         <!--end::Copyright-->
         <!--begin::Crafted-->

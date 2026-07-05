@@ -9,49 +9,50 @@
             <h1 class="font-headline-lg text-4xl md:text-5xl font-black uppercase italic mb-2">Katalog <span class="text-primary-container">Desain Jersey</span></h1>
             <p class="text-on-secondary-container mb-8">Temukan inspirasi desain jersey terbaik untuk tim kesayangan Anda.</p>
             
-            <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
-                <!-- Category Filter (Pills) -->
-                <div class="flex flex-col gap-4 w-full xl:w-auto">
-                    <div class="flex overflow-x-auto snap-x gap-3 pb-2 -mx-4 px-4 md:mx-0 md:px-0 w-full xl:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-                        <a href="{{ route('designs', request()->except('category')) }}" class="snap-center shrink-0 px-6 py-2.5 rounded-full {{ request('category') ? 'bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container' : 'bg-primary-container text-background border-2 border-primary-container shadow-[0_0_16px_rgba(255,102,0,0.3)]' }} font-bold text-sm transition-colors">Semua</a>
-                        @foreach($categories as $cat)
-                        <a href="{{ route('designs', array_merge(request()->all(), ['category' => $cat->slug])) }}" class="snap-center shrink-0 px-6 py-2.5 rounded-full {{ request('category') == $cat->slug ? 'bg-primary-container text-background border-2 border-primary-container shadow-[0_0_16px_rgba(255,102,0,0.3)]' : 'bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container' }} transition-colors font-medium text-sm">{{ $cat->name }}</a>
-                        @endforeach
+            <form action="{{ route('designs') }}" method="GET" id="filterForm" class="flex flex-col gap-6">
+                @if(request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
+                
+                <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4">
+                    <!-- Category Filter (Pills) -->
+                    <div class="flex flex-col gap-4 w-full xl:w-auto">
+                        <div class="flex overflow-x-auto snap-x gap-3 pb-2 -mx-4 px-4 md:mx-0 md:px-0 w-full xl:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+                            <a href="{{ route('designs', request()->except('category')) }}" class="snap-center shrink-0 px-6 py-2.5 rounded-full {{ request('category') ? 'bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container' : 'bg-primary-container text-background border-2 border-primary-container shadow-[0_0_16px_rgba(255,102,0,0.3)]' }} font-bold text-sm transition-colors">Semua</a>
+                            @foreach($categories as $cat)
+                            <a href="{{ route('designs', array_merge(request()->all(), ['category' => $cat->slug])) }}" class="snap-center shrink-0 px-6 py-2.5 rounded-full {{ request('category') == $cat->slug ? 'bg-primary-container text-background border-2 border-primary-container shadow-[0_0_16px_rgba(255,102,0,0.3)]' : 'bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container' }} transition-colors font-medium text-sm">{{ $cat->name }}</a>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
 
-                <!-- Search Box and Colors Form -->
-                <form action="{{ route('designs') }}" method="GET" class="w-full xl:w-auto flex flex-col gap-4">
-                    @if(request('category'))
-                        <input type="hidden" name="category" value="{{ request('category') }}">
-                    @endif
-                    <div class="relative w-full xl:w-80 self-end">
+                    <!-- Search Box -->
+                    <div class="relative w-full xl:w-80 shrink-0">
                         <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari desain jersey..." class="w-full bg-surface-container border border-surface-container-highest rounded-full px-5 py-2.5 text-sm text-on-surface placeholder-on-secondary-container focus:outline-none focus:border-primary-container transition-colors" />
                         <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-on-secondary-container hover:text-primary-container transition-colors">
                             <span class="material-symbols-rounded text-xl">search</span>
                         </button>
                     </div>
-                    
-                    <!-- Colors Filter -->
-                    @if($colors->count() > 0)
-                    <div class="flex flex-col gap-2 w-full overflow-hidden">
-                        <div class="flex items-center gap-2">
-                            <span class="material-symbols-rounded text-sm text-on-secondary-container">palette</span>
-                            <span class="text-xs font-bold text-on-secondary-container uppercase tracking-wider">Filter Warna</span>
-                        </div>
-                        <div class="flex overflow-x-auto snap-x gap-2 pb-2 -mx-4 px-4 md:mx-0 md:px-0 w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-                            @foreach($colors as $color)
-                            <label class="snap-center shrink-0 cursor-pointer flex items-center gap-1.5 bg-surface-container border border-surface-container-highest rounded-full px-3.5 py-1.5 hover:border-primary-container transition-colors {{ is_array(request('colors')) && in_array($color->id, request('colors')) ? 'border-primary-container ring-1 ring-primary-container bg-primary-container/10' : '' }}">
-                                <input type="checkbox" name="colors[]" value="{{ $color->id }}" class="hidden" onchange="this.form.submit()" {{ is_array(request('colors')) && in_array($color->id, request('colors')) ? 'checked' : '' }}>
-                                <span class="w-3.5 h-3.5 rounded-full shadow-sm" style="background-color: {{ $color->hex_code ?? '#ccc' }};"></span>
-                                <span class="text-[13px] text-on-surface font-medium whitespace-nowrap">{{ $color->name }}</span>
-                            </label>
-                            @endforeach
-                        </div>
+                </div>
+
+                <!-- Colors Filter -->
+                @if($colors->count() > 0)
+                <div class="flex flex-col gap-3 w-full overflow-hidden">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-rounded text-sm text-on-secondary-container">palette</span>
+                        <span class="text-xs font-bold text-on-secondary-container uppercase tracking-wider">Filter Warna</span>
                     </div>
-                    @endif
-                </form>
-            </div>
+                    <div class="flex overflow-x-auto snap-x gap-2 py-1 -mx-4 px-4 md:mx-0 md:px-0 w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+                        @foreach($colors as $color)
+                        <label class="snap-center shrink-0 cursor-pointer flex items-center gap-1.5 bg-surface-container border border-surface-container-highest rounded-full px-3.5 py-1.5 hover:border-primary-container transition-colors {{ is_array(request('colors')) && in_array($color->id, request('colors')) ? 'border-primary-container ring-1 ring-primary-container bg-primary-container/10' : '' }}">
+                            <input type="checkbox" name="colors[]" value="{{ $color->id }}" class="hidden" onchange="document.getElementById('filterForm').submit()" {{ is_array(request('colors')) && in_array($color->id, request('colors')) ? 'checked' : '' }}>
+                            <span class="w-3.5 h-3.5 rounded-full shadow-sm" style="background-color: {{ $color->hex_code ?? '#ccc' }};"></span>
+                            <span class="text-[13px] text-on-surface font-medium whitespace-nowrap">{{ $color->name }}</span>
+                        </label>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+            </form>
         </div>
 
         @if($designs->count() > 0)

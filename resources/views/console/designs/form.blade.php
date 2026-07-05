@@ -122,10 +122,20 @@
                                     + Tambah Kategori
                                 </button>
                             </div>
-                            <select name="design_category_id" id="design_category_select" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Pilih Kategori" required>
-                                <option></option>
+                            <select name="categories[]" id="design_category_select" class="form-select form-select-solid" data-control="select2" data-placeholder="Pilih Kategori" multiple="multiple" required>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}" {{ old('design_category_id', $design->design_category_id ?? '') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" {{ (isset($design) && $design->categories->contains($category->id)) || (is_array(old('categories')) && in_array($category->id, old('categories'))) ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="mb-7">
+                            <label class="form-label">Warna</label>
+                            <select name="colors[]" id="design_color_select" class="form-select form-select-solid" data-control="select2" data-placeholder="Pilih Warna" multiple="multiple">
+                                @foreach($colors as $color)
+                                    <option value="{{ $color->id }}" {{ (isset($design) && $design->colors->contains($color->id)) || (is_array(old('colors')) && in_array($color->id, old('colors'))) ? 'selected' : '' }}>
+                                        {{ $color->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>

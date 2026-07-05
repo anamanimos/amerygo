@@ -17,6 +17,6 @@ class DesignCategory extends Model
 
     public function designs()
     {
-        return $this->hasMany(Design::class);
+        return $this->belongsToMany(Design::class, 'design_design_category');
     }
 }

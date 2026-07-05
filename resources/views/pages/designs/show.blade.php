@@ -13,8 +13,12 @@
 
         <!-- Design Card -->
         <div class="bg-surface-container border border-surface-container-highest rounded-3xl p-6 md:p-8 shadow-xl flex flex-col items-center">
-            @if($design->category)
-                <span class="px-4 py-1.5 rounded-full bg-surface-container-high border border-surface-container-highest text-primary-container text-xs font-bold mb-4">{{ $design->category->name }}</span>
+            @if($design->categories->count() > 0)
+                <div class="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">
+                    @foreach($design->categories as $category)
+                        <span class="px-4 py-1.5 rounded-full bg-surface-container-high border border-surface-container-highest text-primary-container text-xs font-bold">{{ $category->name }}</span>
+                    @endforeach
+                </div>
             @endif
             
             <h1 class="text-2xl md:text-4xl font-black font-headline-lg uppercase text-on-surface mb-6">{{ $design->name }}</h1>
@@ -32,6 +36,20 @@
             @if($design->description)
                 <div class="prose prose-lg dark:prose-invert max-w-none mb-8 text-on-surface-variant text-sm md:text-base">
                     {!! $design->description !!}
+                </div>
+            @endif
+
+            @if($design->colors->count() > 0)
+                <div class="mb-8 flex flex-col items-center md:items-start">
+                    <h4 class="text-on-secondary-container text-sm font-bold uppercase tracking-wider mb-3">Tersedia dalam warna:</h4>
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        @foreach($design->colors as $color)
+                            <div class="flex flex-col items-center gap-1 group" title="{{ $color->name }}">
+                                <div class="w-8 h-8 rounded-full border-2 border-surface-container-highest shadow-sm group-hover:scale-110 group-hover:border-primary-container transition-all" style="background-color: {{ $color->hex_code ?? '#ccc' }};"></div>
+                                <span class="text-[10px] text-on-surface-variant">{{ $color->name }}</span>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             @endif
             

@@ -148,7 +148,7 @@
                     </div>
 
                     <!-- Katalog Desain -->
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ request()->routeIs('console.designs.*') || request()->routeIs('console.design_categories.*') ? 'here show' : '' }}">
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ request()->routeIs('console.designs.*') || request()->routeIs('console.design_categories.*') || request()->routeIs('console.colors.*') ? 'here show' : '' }}">
                         <span class="menu-link">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-picture fs-2">
@@ -173,6 +173,14 @@
                                         <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Kategori</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link {{ request()->routeIs('console.colors.index') ? 'active' : '' }}" href="{{ route('console.colors.index') }}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Warna</span>
                                 </a>
                             </div>
                         </div>

@@ -11,22 +11,40 @@
             
             <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
                 <!-- Category Filter (Pills) -->
-                <div class="flex overflow-x-auto snap-x gap-3 pb-2 -mx-4 px-4 md:mx-0 md:px-0 w-full xl:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-                    <a href="{{ route('designs', request()->except('category')) }}" class="snap-center shrink-0 px-6 py-2.5 rounded-full {{ request('category') ? 'bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container' : 'bg-primary-container text-background border-2 border-primary-container shadow-[0_0_16px_rgba(255,102,0,0.3)]' }} font-bold text-sm transition-colors">Semua</a>
-                    @foreach($categories as $cat)
-                    <a href="{{ route('designs', array_merge(request()->all(), ['category' => $cat->slug])) }}" class="snap-center shrink-0 px-6 py-2.5 rounded-full {{ request('category') == $cat->slug ? 'bg-primary-container text-background border-2 border-primary-container shadow-[0_0_16px_rgba(255,102,0,0.3)]' : 'bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container' }} transition-colors font-medium text-sm">{{ $cat->name }}</a>
-                    @endforeach
+                <div class="flex flex-col gap-4 w-full xl:w-auto">
+                    <div class="flex overflow-x-auto snap-x gap-3 pb-2 -mx-4 px-4 md:mx-0 md:px-0 w-full xl:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+                        <a href="{{ route('designs', request()->except('category')) }}" class="snap-center shrink-0 px-6 py-2.5 rounded-full {{ request('category') ? 'bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container' : 'bg-primary-container text-background border-2 border-primary-container shadow-[0_0_16px_rgba(255,102,0,0.3)]' }} font-bold text-sm transition-colors">Semua</a>
+                        @foreach($categories as $cat)
+                        <a href="{{ route('designs', array_merge(request()->all(), ['category' => $cat->slug])) }}" class="snap-center shrink-0 px-6 py-2.5 rounded-full {{ request('category') == $cat->slug ? 'bg-primary-container text-background border-2 border-primary-container shadow-[0_0_16px_rgba(255,102,0,0.3)]' : 'bg-surface-container border-2 border-surface-container-highest text-on-surface hover:border-primary-container/50 hover:text-primary-container' }} transition-colors font-medium text-sm">{{ $cat->name }}</a>
+                        @endforeach
+                    </div>
                 </div>
 
-                <!-- Search Box -->
-                <form action="{{ route('designs') }}" method="GET" class="relative w-full xl:w-80">
+                <!-- Search Box and Colors Form -->
+                <form action="{{ route('designs') }}" method="GET" class="relative w-full xl:w-auto flex flex-col gap-3">
                     @if(request('category'))
                         <input type="hidden" name="category" value="{{ request('category') }}">
                     @endif
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari desain jersey..." class="w-full bg-surface-container border border-surface-container-highest rounded-full px-5 py-2.5 text-sm text-on-surface placeholder-on-secondary-container focus:outline-none focus:border-primary-container transition-colors" />
-                    <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-on-secondary-container hover:text-primary-container transition-colors">
-                        <span class="material-symbols-rounded text-xl">search</span>
-                    </button>
+                    <div class="relative w-full xl:w-80">
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari desain jersey..." class="w-full bg-surface-container border border-surface-container-highest rounded-full px-5 py-2.5 text-sm text-on-surface placeholder-on-secondary-container focus:outline-none focus:border-primary-container transition-colors" />
+                        <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-on-secondary-container hover:text-primary-container transition-colors">
+                            <span class="material-symbols-rounded text-xl">search</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Colors Filter -->
+                    @if($colors->count() > 0)
+                    <div class="flex flex-wrap gap-2 items-center">
+                        <span class="text-xs font-bold text-on-secondary-container uppercase tracking-wider mr-2">Warna:</span>
+                        @foreach($colors as $color)
+                        <label class="cursor-pointer flex items-center gap-1 bg-surface-container border border-surface-container-highest rounded-full px-3 py-1 hover:border-primary-container transition-colors {{ is_array(request('colors')) && in_array($color->id, request('colors')) ? 'border-primary-container ring-1 ring-primary-container bg-primary-container/10' : '' }}">
+                            <input type="checkbox" name="colors[]" value="{{ $color->id }}" class="hidden" onchange="this.form.submit()" {{ is_array(request('colors')) && in_array($color->id, request('colors')) ? 'checked' : '' }}>
+                            <span class="w-3 h-3 rounded-full shadow-sm" style="background-color: {{ $color->hex_code ?? '#ccc' }};"></span>
+                            <span class="text-xs text-on-surface font-medium">{{ $color->name }}</span>
+                        </label>
+                        @endforeach
+                    </div>
+                    @endif
                 </form>
             </div>
         </div>
@@ -39,7 +57,7 @@
                  data-name="{{ $design->name }}"
                  data-slug="{{ $design->slug }}"
                  data-image="{{ $design->image ? Storage::disk('public')->url(str_replace('storage/', '', $design->image)) : '' }}"
-                 data-category="{{ $design->category ? $design->category->name : 'Uncategorized' }}"
+                 data-category="{{ $design->categories->count() > 0 ? $design->categories->pluck('name')->implode(', ') : 'Uncategorized' }}"
                  onclick="openDesignModal(this)">
                  
                 <!-- Description Container (Hidden) -->
@@ -58,8 +76,18 @@
                     </div>
                 </div>
                 <div class="flex flex-col px-2">
-                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">{{ $design->category ? $design->category->name : 'Uncategorized' }}</p>
+                    <p class="text-on-secondary-container text-xs mb-1 uppercase tracking-wider font-bold">{{ $design->categories->count() > 0 ? $design->categories->pluck('name')->implode(', ') : 'Uncategorized' }}</p>
                     <h3 class="font-headline-md font-bold text-base sm:text-lg text-on-surface group-hover:text-primary-container transition-colors leading-tight line-clamp-2">{{ $design->name }}</h3>
+                    @if($design->colors->count() > 0)
+                    <div class="flex gap-1 mt-2">
+                        @foreach($design->colors->take(5) as $color)
+                            <div class="w-3 h-3 rounded-full border border-surface-container-highest shadow-sm" style="background-color: {{ $color->hex_code ?? '#ccc' }};" title="{{ $color->name }}"></div>
+                        @endforeach
+                        @if($design->colors->count() > 5)
+                            <span class="text-[10px] text-on-secondary-container font-medium ml-1">+{{ $design->colors->count() - 5 }}</span>
+                        @endif
+                    </div>
+                    @endif
                 </div>
             </div>
             @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Console;
 use App\Http\Controllers\Controller;
 use App\Models\Design;
 use App\Models\DesignCategory;
+use App\Models\Color;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -19,7 +20,7 @@ class DesignController extends Controller
 
     public function index()
     {
-        $designs = Design::with('category')->latest()->get();
+        $designs = Design::with(['categories', 'colors'])->latest()->get();
         $currentCount = $designs->count();
         $limit = $this->getLimit();
         return view('console.designs.index', compact('designs', 'currentCount', 'limit'));
@@ -32,7 +33,8 @@ class DesignController extends Controller
             return redirect()->route('console.designs.index')->with('error', 'Batas maksimal ' . $limit . ' desain telah tercapai.');
         }
         $categories = DesignCategory::where('is_active', true)->get();
-        return view('console.designs.form', compact('categories'));
+        $colors = Color::all();
+        return view('console.designs.form', compact('categories', 'colors'));
     }
 
     public function store(Request $request)
@@ -47,7 +49,10 @@ class DesignController extends Controller
 
         $data = $request->validate([
             'name' => 'required|string|max:255',
-            'design_category_id' => 'required|exists:design_categories,id',
+            'categories' => 'required|array',
+            'categories.*' => 'exists:design_categories,id',
+            'colors' => 'nullable|array',
+            'colors.*' => 'exists:colors,id',
             'description' => 'nullable|string',
             'cropped_image' => 'required|string',
             'is_active' => 'boolean',
@@ -80,7 +85,12 @@ class DesignController extends Controller
             $data['image'] = 'storage/designs/' . $filename;
         }
 
-        Design::create($data);
+        $design = Design::create($data);
+
+        $design->categories()->sync($request->categories);
+        if ($request->has('colors')) {
+            $design->colors()->sync($request->colors);
+        }
 
         if ($request->ajax()) {
             return response()->json(['success' => true, 'message' => 'Desain jersey berhasil ditambahkan.']);
@@ -92,14 +102,18 @@ class DesignController extends Controller
     public function edit(Design $design)
     {
         $categories = DesignCategory::where('is_active', true)->get();
-        return view('console.designs.form', compact('design', 'categories'));
+        $colors = Color::all();
+        return view('console.designs.form', compact('design', 'categories', 'colors'));
     }
 
     public function update(Request $request, Design $design)
     {
         $data = $request->validate([
             'name' => 'required|string|max:255',
-            'design_category_id' => 'required|exists:design_categories,id',
+            'categories' => 'required|array',
+            'categories.*' => 'exists:design_categories,id',
+            'colors' => 'nullable|array',
+            'colors.*' => 'exists:colors,id',
             'description' => 'nullable|string',
             'cropped_image' => 'nullable|string',
             'is_active' => 'boolean',
@@ -141,6 +155,13 @@ class DesignController extends Controller
         }
 
         $design->update($data);
+
+        $design->categories()->sync($request->categories);
+        if ($request->has('colors')) {
+            $design->colors()->sync($request->colors);
+        } else {
+            $design->colors()->detach();
+        }
 
         if ($request->ajax()) {
             return response()->json(['success' => true, 'message' => 'Desain jersey berhasil diperbarui.']);

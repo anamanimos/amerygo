@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>{{ $design->category->name ?? '-' }}</td>
+                            <td>{{ $design->categories->pluck('name')->implode(', ') ?: '-' }}</td>
                             <td>
                                 @if($design->is_active)
                                     <span class="badge badge-light-success">Aktif</span>

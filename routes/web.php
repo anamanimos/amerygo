@@ -183,6 +183,16 @@ Route::prefix('console')->group(function () {
             'destroy' => 'console.design_categories.destroy',
         ]);
 
+        Route::resource('colors', \App\Http\Controllers\Console\ColorController::class)->names([
+            'index' => 'console.colors.index',
+            'create' => 'console.colors.create',
+            'store' => 'console.colors.store',
+            'show' => 'console.colors.show',
+            'edit' => 'console.colors.edit',
+            'update' => 'console.colors.update',
+            'destroy' => 'console.colors.destroy',
+        ]);
+
         Route::resource('designs', \App\Http\Controllers\Console\DesignController::class)->names([
             'index' => 'console.designs.index',
             'create' => 'console.designs.create',

@@ -10,7 +10,6 @@ class Design extends Model
     use HasFactory;
 
     protected $fillable = [
-        'design_category_id',
         'name',
         'slug',
         'image',
@@ -20,8 +19,13 @@ class Design extends Model
         'meta_description',
     ];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(DesignCategory::class, 'design_category_id');
+        return $this->belongsToMany(DesignCategory::class, 'design_design_category');
+    }
+
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class);
     }
 }

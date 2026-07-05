@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Design;
 use App\Models\DesignCategory;
+use App\Models\Color;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class DesignController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Design::with('category')->where('is_active', true);
+        $query = Design::with(['categories', 'colors'])->where('is_active', true);
 
         // Search filter
         if ($request->filled('search')) {
@@ -25,24 +26,35 @@ class DesignController extends Controller
 
         // Category filter
         if ($request->filled('category')) {
-            $query->whereHas('category', function ($q) use ($request) {
+            $query->whereHas('categories', function ($q) use ($request) {
                 $q->where('slug', $request->input('category'))
                   ->where('is_active', true);
             });
         }
 
+        // Colors filter (array of hex codes or ids? Let's use ids array from frontend)
+        if ($request->filled('colors') && is_array($request->colors)) {
+            $query->whereHas('colors', function ($q) use ($request) {
+                $q->whereIn('colors.id', $request->colors);
+            });
+        }
+
         $designs = $query->latest()->paginate(12)->withQueryString();
         $categories = DesignCategory::where('is_active', true)->get();
+        $colors = Color::all();
         $whatsappNumber = Setting::where('key', 'whatsapp_number')->value('value') ?? '6281234567890';
 
-        return view('pages.designs.index', compact('designs', 'categories', 'whatsappNumber'));
+        return view('pages.designs.index', compact('designs', 'categories', 'colors', 'whatsappNumber'));
     }
 
     public function show($slug)
     {
-        $design = Design::with('category')->where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $design = Design::with(['categories', 'colors'])->where('slug', $slug)->where('is_active', true)->firstOrFail();
         
-        $relatedDesigns = Design::where('design_category_id', $design->design_category_id)
+        $categoryIds = $design->categories->pluck('id')->toArray();
+        $relatedDesigns = Design::whereHas('categories', function($q) use ($categoryIds) {
+                $q->whereIn('design_categories.id', $categoryIds);
+            })
             ->where('id', '!=', $design->id)
             ->where('is_active', true)
             ->latest()

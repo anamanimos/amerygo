@@ -114,7 +114,7 @@
                     <label class="form-label fw-bold">Logo (Light Mode)</label>
                     <div class="text-muted fs-7 mb-2">Digunakan untuk background terang. Rasio 3:1.</div>
                     
-                    <input type="file" id="input_site_logo_light" class="d-none" accept="image/*" onchange="openCropper(this, 'site_logo_light', 3/1)">
+                    <input type="file" id="input_site_logo_light" class="d-none" accept="image/*" onchange="processDirectUpload(this, 'site_logo_light')">
                     <input type="hidden" name="site_logo_light" id="hidden_site_logo_light">
                     
                     <div class="image-preview-wrapper" onclick="document.getElementById('input_site_logo_light').click()">
@@ -135,7 +135,7 @@
                     <label class="form-label fw-bold">Logo (Dark Mode)</label>
                     <div class="text-muted fs-7 mb-2">Digunakan untuk background gelap. Rasio 3:1.</div>
                     
-                    <input type="file" id="input_site_logo_dark" class="d-none" accept="image/*" onchange="openCropper(this, 'site_logo_dark', 3/1)">
+                    <input type="file" id="input_site_logo_dark" class="d-none" accept="image/*" onchange="processDirectUpload(this, 'site_logo_dark')">
                     <input type="hidden" name="site_logo_dark" id="hidden_site_logo_dark">
                     
                     <div class="image-preview-wrapper bg-dark border-dark" onclick="document.getElementById('input_site_logo_dark').click()">
@@ -307,6 +307,26 @@
             cropperModal.hide();
         });
     });
+
+    function processDirectUpload(input, targetId) {
+        if (input.files && input.files[0]) {
+            const file = input.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('hidden_' + targetId).value = e.target.result;
+                const previewImg = document.getElementById('preview_' + targetId);
+                const placeholder = document.getElementById('placeholder_' + targetId);
+                
+                previewImg.src = e.target.result;
+                previewImg.classList.remove('d-none');
+                
+                if (placeholder) {
+                    placeholder.classList.add('d-none');
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    }
 
     function openCropper(input, targetId, aspectRatio) {
         if (input.files && input.files[0]) {

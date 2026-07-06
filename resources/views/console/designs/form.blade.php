@@ -116,12 +116,7 @@
                     </div>
                     <div class="card-body pt-0">
                         <div class="mb-7">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <label class="required form-label mb-0">Kategori</label>
-                                <button type="button" class="btn btn-link btn-color-primary btn-active-color-primary p-0 fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
-                                    + Tambah Kategori
-                                </button>
-                            </div>
+                            <label class="required form-label">Kategori</label>
                             <select name="categories[]" id="design_category_select" class="form-select form-select-solid" data-control="select2" data-placeholder="Pilih Kategori" multiple="multiple" required>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}" {{ (isset($design) && $design->categories->contains($category->id)) || (is_array(old('categories')) && in_array($category->id, old('categories'))) ? 'selected' : '' }}>{{ $category->name }}</option>
@@ -460,6 +455,96 @@
                 });
             });
         }
+        // Select2 Add button hooks
+        $('#design_category_select').on('select2:open', function () {
+            let a = $(this).data('select2');
+            if (!$('.select2-add-category-btn').length) {
+                a.$results.parents('.select2-results')
+                    .append('<div class="select2-add-category-btn p-3 border-top"><button type="button" class="btn btn-sm btn-light-primary w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#addCategoryModal" onclick="$(\'#design_category_select\').select2(\'close\');"><i class="ki-duotone ki-plus fs-2"></i> Tambah Kategori Baru</button></div>');
+            }
+        });
+
+        $('#design_color_select').on('select2:open', function () {
+            let a = $(this).data('select2');
+            if (!$('.select2-add-color-btn').length) {
+                a.$results.parents('.select2-results')
+                    .append('<div class="select2-add-color-btn p-3 border-top"><button type="button" class="btn btn-sm btn-light-primary w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#addColorModal" onclick="$(\'#design_color_select\').select2(\'close\');"><i class="ki-duotone ki-plus fs-2"></i> Tambah Warna Baru</button></div>');
+            }
+        });
+
+        // Quick Color modal form handler
+        const quickColorForm = document.getElementById('quick_color_form');
+        const btnSubmitQuickColor = document.getElementById('btnSubmitQuickColor');
+        const designColorSelect = document.getElementById('design_color_select');
+        const addColorModalEl = document.getElementById('addColorModal');
+
+        if (quickColorForm) {
+            quickColorForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                btnSubmitQuickColor.setAttribute('data-kt-indicator', 'on');
+                btnSubmitQuickColor.disabled = true;
+
+                const formData = new FormData(quickColorForm);
+
+                fetch(quickColorForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    btnSubmitQuickColor.removeAttribute('data-kt-indicator');
+                    btnSubmitQuickColor.disabled = false;
+
+                    if (data.success) {
+                        const modalInstance = bootstrap.Modal.getInstance(addColorModalEl) || new bootstrap.Modal(addColorModalEl);
+                        modalInstance.hide();
+                        
+                        document.getElementById('quick_color_name').value = '';
+                        document.getElementById('quick_color_hex').value = '';
+
+                        const newOption = new Option(data.color.name, data.color.id, true, true);
+                        $(designColorSelect).append(newOption).trigger('change');
+
+                        Swal.fire({
+                            text: data.message,
+                            icon: "success",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok",
+                            customClass: { confirmButton: "btn btn-primary" }
+                        });
+                    } else {
+                        let errors = data.message || "Terjadi kesalahan.";
+                        if (data.errors) {
+                            errors = Object.values(data.errors).flat().join('<br>');
+                        }
+                        Swal.fire({
+                            html: errors,
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok",
+                            customClass: { confirmButton: "btn btn-danger" }
+                        });
+                    }
+                })
+                .catch(error => {
+                    btnSubmitQuickColor.removeAttribute('data-kt-indicator');
+                    btnSubmitQuickColor.disabled = false;
+                    Swal.fire({
+                        text: "Terjadi kesalahan pada sistem.",
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok",
+                        customClass: { confirmButton: "btn btn-danger" }
+                    });
+                });
+            });
+        }
     });
 </script>
 
@@ -482,6 +567,36 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary" id="btnSubmitQuickCategory">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tambah Warna -->
+<div class="modal fade" id="addColorModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="quick_color_form" action="{{ route('console.colors.store') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Tambah Warna Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-5">
+                        <label class="required form-label">Nama Warna</label>
+                        <input type="text" name="name" id="quick_color_name" class="form-control form-control-solid" placeholder="Contoh: Merah Maroon" required />
+                    </div>
+                    <div class="mb-5">
+                        <label class="form-label">Kode Warna (Hex)</label>
+                        <input type="color" name="hex_code" id="quick_color_hex" class="form-control form-control-solid form-control-color h-50px p-2 w-100" />
+                        <div class="text-muted fs-7 mt-2">Opsional: Pilih warna secara visual.</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary" id="btnSubmitQuickColor">Simpan</button>
                 </div>
             </form>
         </div>

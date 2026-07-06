@@ -193,6 +193,7 @@ Route::prefix('console')->group(function () {
             'destroy' => 'console.colors.destroy',
         ]);
 
+        Route::post('designs/bulk-action', \App\Http\Controllers\Console\DesignController::class . '@bulkAction')->name('console.designs.bulk-action');
         Route::resource('designs', \App\Http\Controllers\Console\DesignController::class)->names([
             'index' => 'console.designs.index',
             'create' => 'console.designs.create',
